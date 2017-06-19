@@ -1,17 +1,19 @@
 # A Table of Contents for All Gruntwork Code
 
+_Most of the links in this repo are private. To gain access, please contact Gruntwork at [info@gruntwork.io](mailto:info@gruntwork.io)._
+
 ### Terminology
 
-**Infrastructure Package:** A reusable, tested, documented, configurable, best-practices definition of a single 
+- **Infrastructure Package:** A reusable, tested, documented, configurable, best-practices definition of a single 
 piece of Infrastructure written using a combination of Terraform, Go, and Bash.
 
-**Module:** A well-defined, narrowly scoped implementation of a specific feature that is a component of executing the
-overall vision of a particular Infrastructure Package. Modules may be Terraform code, Packer templates, Go, bash, or some
-combination. Note that a Gruntwork Infrastructure Package contains one or more modules.
+- **Module:** A well-defined, narrowly scoped implementation of a specific component of a particular Infrastructure 
+Package. Modules may be Terraform code, Packer templates, Go, bash, or some combination. Note that a 
+Gruntwork Infrastructure Package contains one or more modules.
 
 ### Infrastructure Packages
 
-Gruntwork Infrastructure Packages are spread across multiple GitHub repos. This repo lists all of them:
+Each Gruntwork Infrastructure Package exists in a single, private GitHub repo, with the exception of the Security Package.
 
 1. [Network Topology](https://github.com/gruntwork-io/module-vpc)
 1. [Monitoring and Alerting](https://github.com/gruntwork-io/module-aws-monitoring)
