@@ -34,6 +34,8 @@ Each Gruntwork Infrastructure Package exists in a single, private GitHub repo, w
 
 All packages include access to [package-terraform-utilities](https://github.com/gruntwork-io/package-terraform-utilities).
 
+All packages are validated using our automated testing tool, [terratest](https://github.com/gruntwork-io/terratest).
+
 ### Open Source Infrastructure Packages
 
 In the near future, we will be releasing open source Infrastructure Packages that configure best-practices implementations
