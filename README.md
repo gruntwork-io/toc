@@ -32,6 +32,8 @@ Each Gruntwork Infrastructure Package exists in a single, private GitHub repo, w
 1. [MongoDB Cluster](https://github.com/gruntwork-io/package-mongodb)
 1. [OpenVPN Server](https://github.com/gruntwork-io/package-openvpn)
 
+All packages include access to [package-terraform-utilities](https://github.com/gruntwork-io/package-terraform-utilities).
+
 ### Open Source Infrastructure Packages
 
 In the near future, we will be releasing open source Infrastructure Packages that configure best-practices implementations
