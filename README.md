@@ -31,6 +31,7 @@ Each Gruntwork Infrastructure Package exists in a single, private GitHub repo, w
 1. [Static Assets](https://github.com/gruntwork-io/package-static-assets)
 1. [MongoDB Cluster](https://github.com/gruntwork-io/package-mongodb)
 1. [OpenVPN Server](https://github.com/gruntwork-io/package-openvpn)
+1. [Messaging](https://github.com/gruntwork-io/package-messaging)
 
 All packages include access to [package-terraform-utilities](https://github.com/gruntwork-io/package-terraform-utilities).
 
