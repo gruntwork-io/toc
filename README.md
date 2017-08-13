@@ -143,14 +143,13 @@ These are the Infrastructure Packages Gruntwork currently has available:
 
 The Gruntwork Reference Architecture is a best-practices way to combine all of Gruntwork's Infrastructure Packages into an end-to-end tech stack that contains just about all the infrastructure a company needs, including Docker clusters, databases, caches, load balancers, VPCs, CI servers, VPN servers, monitoring systems, log aggregation, alerting, secrets management, and so on. We build this all using infrastructure as code and immutable infrastructure principles, give you 100% of the code, and can get it deployed in minutes. 
 
-You can view the Reference Architecture for a fictional customer, Acme, at the following repos:
+You can view the Reference Architecture for a fictional company, Acme, at the following repos:
 
 1. [infrastratructure-modules](https://github.com/gruntwork-io/infrastructure-modules-acme): The reusable modules that define the infrastructure for the entire company.
 1. [infrastratructure-live](https://github.com/gruntwork-io/infrastructure-live-acme): Use the modules in infrastructure-modules to deploy all of the live environments for the company.
-1. [sample-app](https://github.com/gruntwork-io/sample-app-acme): A sample app that demonstrates best practices for an
-   individual Docker-based app or microservice. This app is written in NodeJS but these practices are broadly applicable
-   (and in the case of Docker, reusable!) across any technology platform.
-   
+1. [sample-app-frontend](https://github.com/gruntwork-io/sample-app-frontend-acme): A sample app that demonstrates best practices for an individual Docker-based frontend app or microservice that talks to backend apps (showing how to do service discovery) and returns HTML. This app is written in NodeJS but these practices are broadly applicable (and in the case of Docker, reusable!) across any technology platform.
+1. [sample-app-backend](https://github.com/gruntwork-io/sample-app-backend-acme): A sample app that demonstrates best practices for an individual Docker-based backend app or microservice that talks to a database. This app is written in NodeJS but these practices are broadly applicable (and in the case of Docker, reusable!) across any technology platform.
+
 ### Gruntwork Open Source Tools
 
 1. [terragrunt](https://github.com/gruntwork-io/terragrunt): A thin wrapper for Terraform that provides extra tools for working with multiple Terraform modules.
