@@ -115,7 +115,7 @@ These are the Infrastructure Packages Gruntwork currently has available:
     1. [consul-cluster](https://github.com/hashicorp/terraform-aws-consul/tree/master/modules/consul-cluster): Deploy a Consul cluster on AWS using an Auto Scaling Group.
     
 1. **[Nomad](https://github.com/hashicorp/terraform-aws-nomad)**: Deploy and manage a Nomad cluster on AWS. The main modules are:
-    1. [install-nomad](https://github.com/hashicorp/terraform-aws-vault/tree/master/modules/install-nomad): Install Nomad and its dependencies on a Linux server.
+    1. [install-nomad](https://github.com/hashicorp/terraform-aws-nomad/tree/master/modules/install-nomad): Install Nomad and its dependencies on a Linux server.
     1 [run-nomad](https://github.com/hashicorp/terraform-aws-nomad/run-nomad): Run Nomad and automatically connect to a Consul cluster.
     1. [nomad-cluster](https://github.com/hashicorp/terraform-aws-nomad/tree/master/modules/nomad-cluster): Deploy a Nomad cluster on AWS using an Auto Scaling Group.
 
