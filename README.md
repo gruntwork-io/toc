@@ -108,22 +108,22 @@ These are the Infrastructure Packages Gruntwork currently has available:
     1. [sns](https://github.com/gruntwork-io/package-messaging/tree/master/modules/sns): Create an SNS topic as well as the publisher and subscriber policies for that topic.
     1. [kinesis](https://github.com/gruntwork-io/package-messaging/tree/master/modules/kinesis): Create a Kinesis stream and configure its sharding settings.
 
-1. **[Consul](https://github.com/gruntwork-io/consul-aws-blueprint)**: Deploy and manage a Consul cluster on AWS. The main modules are:
-    1. [install-consul](https://github.com/gruntwork-io/consul-aws-blueprint/tree/master/modules/install-consul): Install Consul and its dependencies on a Linux server.
-    1. [install-dnsmasq](https://github.com/gruntwork-io/consul-aws-blueprint/tree/master/modules/install-dnsmasq): Install dnsmasq on a Linux server and configure it to work with Consul as a DNS server. This allows you to use domain names such as my-app.service.consul.
-    1. [run-consul](https://github.com/gruntwork-io/consul-aws-blueprint/tree/master/modules/run-consul): Run Consul and automatically bootstrap the cluster.
-    1. [consul-cluster](https://github.com/gruntwork-io/consul-aws-blueprint/tree/master/modules/consul-cluster): Deploy a Consul cluster on AWS using an Auto Scaling Group.
+1. **[Consul](https://github.com/hashicorp/terraform-aws-consul)**: Deploy and manage a Consul cluster on AWS. The main modules are:
+    1. [install-consul](https://github.com/hashicorp/terraform-aws-consul/tree/master/modules/install-consul): Install Consul and its dependencies on a Linux server.
+    1. [install-dnsmasq](https://github.com/hashicorp/terraform-aws-consul/tree/master/modules/install-dnsmasq): Install dnsmasq on a Linux server and configure it to work with Consul as a DNS server. This allows you to use domain names such as my-app.service.consul.
+    1. [run-consul](https://github.com/hashicorp/terraform-aws-consul/tree/master/modules/run-consul): Run Consul and automatically bootstrap the cluster.
+    1. [consul-cluster](https://github.com/hashicorp/terraform-aws-consul/tree/master/modules/consul-cluster): Deploy a Consul cluster on AWS using an Auto Scaling Group.
     
-1. **[Nomad](https://github.com/gruntwork-io/nomad-aws-blueprint)**: Deploy and manage a Nomad cluster on AWS. The main modules are:
-    1. [install-nomad](https://github.com/gruntwork-io/nomad-aws-blueprint/tree/master/modules/install-nomad): Install Nomad and its dependencies on a Linux server.
-    1 [run-nomad](https://github.com/gruntwork-io/nomad-aws-blueprint/tree/master/modules/run-nomad): Run Nomad and automatically connect to a Consul cluster.
-    1. [nomad-cluster](https://github.com/gruntwork-io/nomad-aws-blueprint/tree/master/modules/nomad-cluster): Deploy a Nomad cluster on AWS using an Auto Scaling Group.
+1. **[Nomad](https://github.com/hashicorp/terraform-aws-nomad)**: Deploy and manage a Nomad cluster on AWS. The main modules are:
+    1. [install-nomad](https://github.com/hashicorp/terraform-aws-vault/tree/master/modules/install-nomad): Install Nomad and its dependencies on a Linux server.
+    1 [run-nomad](https://github.com/hashicorp/terraform-aws-nomad/run-nomad): Run Nomad and automatically connect to a Consul cluster.
+    1. [nomad-cluster](https://github.com/hashicorp/terraform-aws-nomad/tree/master/modules/nomad-cluster): Deploy a Nomad cluster on AWS using an Auto Scaling Group.
 
-1. **[Vault](https://github.com/gruntwork-io/vault-aws-blueprint/)**: Deploy and manage a Vault cluster on AWS. The main modules are:
-    1. [install-vault](https://github.com/gruntwork-io/vault-aws-blueprint/tree/master/modules/install-vault): Install Vault and its dependencies on a Linux server.
-    1. [run-vault](https://github.com/gruntwork-io/vault-aws-blueprint/tree/master/modules/run-vault): Run Vault and automatically connect to a Consul cluster.
-    1. [private-tls-cert](https://github.com/gruntwork-io/vault-aws-blueprint/tree/master/modules/private-tls-cert): Generate self-signed TLS certificates for use with Vault.
-    1. [vault-cluster](https://github.com/gruntwork-io/vault-aws-blueprint/tree/master/modules/vault-cluster): Deploy a Vault cluster on AWS using an Auto Scaling Group.
+1. **[Vault](https://github.com/hashicorp/terraform-aws-vault)**: Deploy and manage a Vault cluster on AWS. The main modules are:
+    1. [install-vault](https://github.com/hashicorp/terraform-aws-vault/tree/master/modules/install-vault): Install Vault and its dependencies on a Linux server.
+    1. [run-vault](https://github.com/hashicorp/terraform-aws-vault/tree/master/modules/run-vault): Run Vault and automatically connect to a Consul cluster.
+    1. [private-tls-cert](https://github.com/hashicorp/terraform-aws-vault/tree/master/modules/private-tls-cert): Generate self-signed TLS certificates for use with Vault.
+    1. [vault-cluster](https://github.com/hashicorp/terraform-aws-vault/tree/master/modules/vault-cluster): Deploy a Vault cluster on AWS using an Auto Scaling Group.
 
 1. **[ZooKeeper](https://github.com/gruntwork-io/package-zookeeper)**: Deploy and manage a ZooKeeper cluster, along with Exhibitor, on AWS. The main modules are:
     1. [install-zookeeper](https://github.com/gruntwork-io/package-zookeeper/tree/master/modules/install-zookeeper): Install ZooKeeper and its dependencies on a Linux server.
