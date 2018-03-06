@@ -47,16 +47,23 @@ These are the Infrastructure Packages Gruntwork currently has available:
     1. [lambda](https://github.com/gruntwork-io/package-lambda/tree/master/modules/lambda): Deploy and manage AWS Lambda functions. Includes support for automatically uploading your code to AWS, configuring an IAM role for your Lambda function, and giving your Lambda function access to your VPCs.
     1. [scheduled-lambda-job](https://github.com/gruntwork-io/package-lambda/tree/master/modules/scheduled-lambda-job): Configure your Lambda function to run on a scheduled basis, like a cron job.
 
+1. **[API Gateway](https://github.com/gruntwork-io/package-sam)**: Modules for deploying and managing Serverless Application Model applications with Lambda, API Gateway, and Terraform.
+    1. [gruntsam](https://github.com/gruntwork-io/package-sam/tree/master/modules/gruntsam): CLI tool that allows you to define your APIs using Swagger, run and test your code locally using SAM, and deploy your code to production using API Gateway and Lambda.
+    1. [api-gateway-account-settings](https://github.com/gruntwork-io/package-sam/tree/master/modules/api-gateway-account-settings): set the global (regional) settings required to allow API Gateway to write to CloudWatch logs.
+
 1. **[Security](https://github.com/gruntwork-io/module-security)**: Best practices for managing secrets, credentials, servers, and users. The main modules are:
     1. [auto-update](https://github.com/gruntwork-io/module-security/tree/master/modules/auto-update): Configure your servers to automatically install critical security patches.
     1. [aws-auth](https://github.com/gruntwork-io/module-security/tree/master/modules/aws-auth): A script that makes it much easier to use the AWS CLI with MFA and/or multiple AWS accounts.
     1. [cloudtrail](https://github.com/gruntwork-io/module-security/tree/master/modules/cloudtrail): Configure CloudTrail in an AWS account to audit all API calls.
     1. [kms-master-key](https://github.com/gruntwork-io/module-security/tree/master/modules/kms-master-key): Create a master key in Amazon's Key Management Service and configure permissions for that key.
     1. [ssh-iam](https://github.com/gruntwork-io/module-security/tree/master/modules/ssh-iam): Manage SSH access to your servers using IAM groups. Every developer in an IAM group you specify will be able to SSH to your servers using their own username and SSH key.
+    1. [ssh-iam-selinux-policy](https://github.com/gruntwork-io/module-security/tree/master/modules/ssh-iam-selinux-policy): Install a SELinux Local Policy Module that is necessary to make ssh-iam work on systems with SELinux, such as CentOS.
     1. [iam-groups](https://github.com/gruntwork-io/module-security/tree/master/modules/iam-groups): Create a best-practices set of IAM groups for managing access to your AWS account.
+    1. [iam-user-password-policy](https://github.com/gruntwork-io/module-security/tree/master/modules/iam-user-password-policy): Set the AWS Account Password Policy that will govern password requirements for IAM Users.
     1. [cross-account-iam-roles](https://github.com/gruntwork-io/module-security/tree/master/modules/cross-account-iam-roles): Create IAM roles that allow IAM users to easily switch between AWS accounts.
     1. [fail2ban](https://github.com/gruntwork-io/module-security/tree/master/modules/fail2ban): Install fail2ban on your servers to automatically ban malicious users.
     1. [os-hardening](https://github.com/gruntwork-io/module-security/tree/master/modules/os-hardening): Build a hardened Linux-AMI that implements certian CIS benchmarks.
+    1. [ntp](https://github.com/gruntwork-io/module-security/tree/master/modules/ntp): Install and configures NTP on a Linux server.
 
 1. **[GruntKMS](https://github.com/gruntwork-io/gruntkms)**: A command-line tool that makes it very easy to manage application secrets using Amazon's Key Management Service (KMS). GruntKMS is written in Go and compiles into a standalone binary for every major OS.
 
@@ -66,6 +73,10 @@ These are the Infrastructure Packages Gruntwork currently has available:
     1. [circleci-helpers](https://github.com/gruntwork-io/module-ci/tree/master/modules/circleci-helpers): Configure the CircleCI environment, including installing Go and configuring GOPATH.
     1. [iam-policies](https://github.com/gruntwork-io/module-ci/tree/master/modules/iam-policies): Configure common IAM policies for CI servers, including policies for automatically pushing Docker containers to ECR, deploying Docker images to ECS, and using S3 for Terraform remote state.
     1. [terraform-helpers](https://github.com/gruntwork-io/module-ci/tree/master/modules/terraform-helpers): Automate common CI tasks that involve Terraform, such as automatically updating variables in a `.tfvars` file.
+    1. [ec2-backup](https://github.com/gruntwork-io/module-ci/tree/master/modules/ec2-backup): Run a Lambda function to make scheduled backups of EC2 Instances.
+    1. [install-jenkins](https://github.com/gruntwork-io/module-ci/tree/master/modules/install-jenkins): Install Jenkins on a Linux server.
+    1. [jenkins-server](https://github.com/gruntwork-io/module-ci/tree/master/modules/jenkins-server): Deploy a Jenkins server with an ASG, EBS Volume, ALB, and Route 53 settings.
+    1. [precommit-hooks](https://github.com/gruntwork-io/module-ci/tree/master/modules/precommit-hooks): A collection of pre-commit hooks for Terraform, bash, Go, and more.
 
 1. **[Relational Database](https://github.com/gruntwork-io/module-data-storage)**: Deploy and manage relational databases such as MySQL and PostgreSQL using Amazon's Relational Database Service (RDS). The main modules are:
     1. [rds](https://github.com/gruntwork-io/module-data-storage/tree/master/modules/rds): Deploy a relational database on top of RDS. Includes support for MySQL, PostgreSQL, Oracle, and SQL Server, as well as automatic failover, read replicas, backups, patching, and encryption.
@@ -96,7 +107,6 @@ These are the Infrastructure Packages Gruntwork currently has available:
     1. [backup-mongodb](https://github.com/gruntwork-io/package-mongodb/tree/master/modules/backup-mongodb): Back up the data in your MongoDB cluster to S3.
     1. [init-mongodb](https://github.com/gruntwork-io/package-mongodb/tree/master/modules/init-mongodb): Configure a MongoDB replica set.
     
-
 1. **[OpenVPN Server](https://github.com/gruntwork-io/package-openvpn)**: Deploy an OpenVPN server and control access to it using IAM. The main modules are:
     1. [install-openvpn](https://github.com/gruntwork-io/package-openvpn/tree/master/modules/install-openvpn): Install OpenVPN and its dependencies on a Linux server.
     1. [init-openvpn](https://github.com/gruntwork-io/package-openvpn/tree/master/modules/install-openvpn): Initialize an OpenVPN server, including its Public Key Infrastructure (PKI), Certificate Authority (CA) and configuration.
@@ -136,7 +146,9 @@ These are the Infrastructure Packages Gruntwork currently has available:
 
 1. **[package-terraform-utilities](https://github.com/gruntwork-io/package-terraform-utilities)**: Useful Terraform utilities. The main modules are:
     1. [intermediate-variable](https://github.com/gruntwork-io/package-terraform-utilities/tree/master/modules/intermediate-variable): A way to define intermediate variables in Terraform.
-
+    1. [join-path](https://github.com/gruntwork-io/package-terraform-utilities/tree/master/modules/join-path): Join a list of given path parts (that is, file and folder names) into a single path with the appropriate path separator (backslash or forward slash) for the current operating system.
+    1 [operating-system](https://github.com/gruntwork-io/package-terraform-utilities/tree/master/modules/operating-system): Figure out what operating system is being used to run Terraform from inside your Terraform code.
+    
 1. **[terratest](https://github.com/gruntwork-io/terratest)**: The swiss army knife of testing Terraform modules. This is a library written in Go that we use to test all of the code above. It contains a collection of useful utilities: e.g., apply and destroy Terraform code, SSH to servers and run commands, test HTTP endpoints, fetch data from AWS, build AMIs using Packer, run Docker builds, and so on.
 
 ### Reference Architecture
