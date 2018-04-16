@@ -41,7 +41,8 @@ These are the Infrastructure Packages Gruntwork currently has available:
     1. [server-group](https://github.com/gruntwork-io/module-asg/tree/master/modules/server-group): Run a fixed-size cluster of servers, backed by ASGs, that can automatically attach EBS Volumes and ENIs, while still supporting zero-downtime deployment.
 
 1. **[Load Balancer](https://github.com/gruntwork-io/module-load-balancer)**: Run a highly-available and scalable load balancer in AWS. The main modules are:
-    1. [alb](https://github.com/gruntwork-io/module-load-balancer/tree/master/modules/alb): Deploy an Application Load Balancer (ALB) in AWS. It supports for HTTP, HTTPS, HTTP/2, WebSockets, path-based routing, host-based routing, and health checks.
+    1. [alb](https://github.com/gruntwork-io/module-load-balancer/tree/master/modules/alb): Deploy an Application Load Balancer (ALB) in AWS. It supports HTTP, HTTPS, HTTP/2, WebSockets, path-based routing, host-based routing, and health checks.
+    1. [nlb](https://github.com/gruntwork-io/module-load-balancer/tree/master/modules/nlb): Deploy a Network Load Balancer (NLB) in AWS. It supports TCP, WebSockets, static IPs, high throughputs, and health checks.
 
 1. **[Lambda](https://github.com/gruntwork-io/package-lambda)**: Deploy and manage AWS Lambda functions. The main modules are:
     1. [lambda](https://github.com/gruntwork-io/package-lambda/tree/master/modules/lambda): Deploy and manage AWS Lambda functions. Includes support for automatically uploading your code to AWS, configuring an IAM role for your Lambda function, and giving your Lambda function access to your VPCs.
