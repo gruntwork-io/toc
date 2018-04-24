@@ -65,6 +65,7 @@ These are the Infrastructure Packages Gruntwork currently has available:
     1. [fail2ban](https://github.com/gruntwork-io/module-security/tree/master/modules/fail2ban): Install fail2ban on your servers to automatically ban malicious users.
     1. [os-hardening](https://github.com/gruntwork-io/module-security/tree/master/modules/os-hardening): Build a hardened Linux-AMI that implements certian CIS benchmarks.
     1. [ntp](https://github.com/gruntwork-io/module-security/tree/master/modules/ntp): Install and configures NTP on a Linux server.
+    1. [ip-lockdown](https://github.com/gruntwork-io/module-security/tree/master/modules/ip-lockdown): Install ip-lockdown on your servers to automatically lock down access to specific IPs, such as locking down the EC2 metadata endpoint so only the root user can access it.
 
 1. **[GruntKMS](https://github.com/gruntwork-io/gruntkms)**: A command-line tool that makes it very easy to manage application secrets using Amazon's Key Management Service (KMS). GruntKMS is written in Go and compiles into a standalone binary for every major OS.
 
