@@ -48,8 +48,10 @@ These are the Infrastructure Packages Gruntwork currently has available:
 1. **[Lambda](https://github.com/gruntwork-io/package-lambda)**: Deploy and manage AWS Lambda functions. The main modules are:
     1. [lambda](https://github.com/gruntwork-io/package-lambda/tree/master/modules/lambda): Deploy and manage AWS Lambda functions. Includes support for automatically uploading your code to AWS, configuring an IAM role for your Lambda function, and giving your Lambda function access to your VPCs.
     1. [scheduled-lambda-job](https://github.com/gruntwork-io/package-lambda/tree/master/modules/scheduled-lambda-job): Configure your Lambda function to run on a scheduled basis, like a cron job.
-
-1. **[API Gateway](https://github.com/gruntwork-io/package-sam)**: Modules for deploying and managing Serverless Application Model applications with Lambda, API Gateway, and Terraform.
+    1. [keep-warm](https://github.com/gruntwork-io/package-lambda/tree/master/modules/keep-warm): This is a Lambda function you can use to invoke your other Lambda functions on a scheduled basis to keep those functions "warm," avoiding the cold start issue.
+    1. [lambda-edge](https://github.com/gruntwork-io/package-lambda/tree/master/modules/lambda-edge): This module makes it easy to deploy and manage an AWS Lambda@Edge function. Lambda@Edge gives you a way to run code on-demand in AWS Edge locations without having to manage servers.
+    
+1. **[API Gateway and SAM](https://github.com/gruntwork-io/package-sam)**: Modules for deploying and managing Serverless Application Model applications with Lambda, API Gateway, and Terraform.
     1. [gruntsam](https://github.com/gruntwork-io/package-sam/tree/master/modules/gruntsam): CLI tool that allows you to define your APIs using Swagger, run and test your code locally using SAM, and deploy your code to production using API Gateway and Lambda.
     1. [api-gateway-account-settings](https://github.com/gruntwork-io/package-sam/tree/master/modules/api-gateway-account-settings): set the global (regional) settings required to allow API Gateway to write to CloudWatch logs.
 
@@ -79,7 +81,6 @@ These are the Infrastructure Packages Gruntwork currently has available:
     1. [ec2-backup](https://github.com/gruntwork-io/module-ci/tree/master/modules/ec2-backup): Run a Lambda function to make scheduled backups of EC2 Instances.
     1. [install-jenkins](https://github.com/gruntwork-io/module-ci/tree/master/modules/install-jenkins): Install Jenkins on a Linux server.
     1. [jenkins-server](https://github.com/gruntwork-io/module-ci/tree/master/modules/jenkins-server): Deploy a Jenkins server with an ASG, EBS Volume, ALB, and Route 53 settings.
-    1. [pre-commit hooks](https://github.com/gruntwork-io/pre-commit): A collection of pre-commit hooks for Terraform, bash, Go, and more.
 
 1. **[Relational Database](https://github.com/gruntwork-io/module-data-storage)**: Deploy and manage relational databases such as MySQL and PostgreSQL using Amazon's Relational Database Service (RDS). The main modules are:
     1. [rds](https://github.com/gruntwork-io/module-data-storage/tree/master/modules/rds): Deploy a relational database on top of RDS. Includes support for MySQL, PostgreSQL, Oracle, and SQL Server, as well as automatic failover, read replicas, backups, patching, and encryption.
@@ -129,7 +130,7 @@ These are the Infrastructure Packages Gruntwork currently has available:
     
 1. **[Nomad](https://github.com/hashicorp/terraform-aws-nomad)**: Deploy and manage a Nomad cluster on AWS. The main modules are:
     1. [install-nomad](https://github.com/hashicorp/terraform-aws-nomad/tree/master/modules/install-nomad): Install Nomad and its dependencies on a Linux server.
-    1 [run-nomad](https://github.com/hashicorp/terraform-aws-nomad/run-nomad): Run Nomad and automatically connect to a Consul cluster.
+    1. [run-nomad](https://github.com/hashicorp/terraform-aws-nomad/run-nomad): Run Nomad and automatically connect to a Consul cluster.
     1. [nomad-cluster](https://github.com/hashicorp/terraform-aws-nomad/tree/master/modules/nomad-cluster): Deploy a Nomad cluster on AWS using an Auto Scaling Group.
 
 1. **[Vault](https://github.com/hashicorp/terraform-aws-vault)**: Deploy and manage a Vault cluster on AWS. The main modules are:
@@ -143,16 +144,21 @@ These are the Infrastructure Packages Gruntwork currently has available:
     1. [install-exhibitor](https://github.com/gruntwork-io/package-zookeeper/tree/master/modules/install-exhibitor): Install Exhibitor and its dependencies on a Linux server.
     1. [zookeeper-cluster](https://github.com/gruntwork-io/package-zookeeper/tree/master/modules/zookeeper-cluster): Deploy a ZooKeeper cluster using the server-group module from the AMI Cluster Infrastructure Package. Includes support for EBS Volumes for the transaction log as well as a set of ENIs to provide static IP addresses to ZooKeeper clients.
 
-1. **[Kafka](https://github.com/gruntwork-io/package-kafka)**: Deploy and manage a cluster of Kafka brokers on AWS. The main modules are:
+1. **[Kafka](https://github.com/gruntwork-io/package-kafka)**: Deploy and manage a cluster of Kafka brokers on AWS, plus Confluent tools (REST Proxy, Schema Registry, Kafka Connect). The main modules are:
     1. [install-kafka](https://github.com/gruntwork-io/package-kafka/tree/master/modules/install-kafka): Install Kafka and its dependencies on a Linux server.
     1. [kafka-cluster](https://github.com/gruntwork-io/package-kafka/tree/master/modules/kafka-cluster): Deploy a Kafka cluster using the server-group module from the AMI Cluster Infrastructure Package. Includes support for EBS Volumes for the Kafka log.
+    1. [confluent-tools-cluster](https://github.com/gruntwork-io/package-kafka/tree/master/modules/confluent-tools-cluster): Run a cluster of Confluent tools (REST Proxy, Schema Registry, Kafka Connect).
+    1. [install-confluent-tools](https://github.com/gruntwork-io/package-kafka/tree/master/modules/install-confluent-tools): Install Confluent tools (REST Proxy and Schema Registry) on Linux.
+    1. [run-kafka-connect](https://github.com/gruntwork-io/package-kafka/tree/master/modules/run-kafka-connect): Configure and run Kafka Connect.
+    1. [run-kafka-rest](https://github.com/gruntwork-io/package-kafka/tree/master/modules/run-kafka-rest): Configure and run Kafka REST Proxy.
+    1. [run-schema-registry](https://github.com/gruntwork-io/package-kafka/tree/master/modules/run-schema-registry): Configure and run Schema Registry.
 
 1. **[package-terraform-utilities](https://github.com/gruntwork-io/package-terraform-utilities)**: Useful Terraform utilities. The main modules are:
     1. [intermediate-variable](https://github.com/gruntwork-io/package-terraform-utilities/tree/master/modules/intermediate-variable): A way to define intermediate variables in Terraform.
     1. [join-path](https://github.com/gruntwork-io/package-terraform-utilities/tree/master/modules/join-path): Join a list of given path parts (that is, file and folder names) into a single path with the appropriate path separator (backslash or forward slash) for the current operating system.
     1 [operating-system](https://github.com/gruntwork-io/package-terraform-utilities/tree/master/modules/operating-system): Figure out what operating system is being used to run Terraform from inside your Terraform code.
-    
-1. **[terratest](https://github.com/gruntwork-io/terratest)**: The swiss army knife of testing Terraform modules. This is a library written in Go that we use to test all of the code above. It contains a collection of useful utilities: e.g., apply and destroy Terraform code, SSH to servers and run commands, test HTTP endpoints, fetch data from AWS, build AMIs using Packer, run Docker builds, and so on.
+
+1. **[gruntwork](https://github.com/gruntwork-io/gruntwork)**: A CLI tool to perform Gruntwork tasks, such as bootstrapping your GitHub and AWS accounts for the Reference Architecture.
 
 ### Reference Architecture
 
@@ -185,10 +191,18 @@ In a multi-account setup, each environment (e.g., stage, prod, etc) is deployed 
 ### Gruntwork Open Source Tools
 
 1. [terragrunt](https://github.com/gruntwork-io/terragrunt): A thin wrapper for Terraform that provides extra tools for working with multiple Terraform modules.
+    
+1. [terratest](https://github.com/gruntwork-io/terratest): The swiss army knife of testing Terraform modules. This is a library written in Go that we use to test all of the code above. It contains a collection of useful utilities: e.g., apply and destroy Terraform code, SSH to servers and run commands, test HTTP endpoints, fetch data from AWS, build AMIs using Packer, run Docker builds, and so on.
 
 1. [fetch](https://github.com/gruntwork-io/fetch): A tool that makes it easy to download files, folders, and release assets from a specific git commit, branch, or tag of public and private GitHub repos. 
 
 1. [gruntwork-installer](https://github.com/gruntwork-io/gruntwork-installer): A script to make it easy to install Gruntwork Modules.
+
+1. [bash-commons](https://github.com/gruntwork-io/bash-commons): A collection of reusable Bash functions for handling common tasks such as logging, assertions, string manipulation, and more.
+
+1. [pre-commit hooks](https://github.com/gruntwork-io/pre-commit): A collection of pre-commit hooks for Terraform, bash, Go, and more.
+
+1. [cloud-nuke](https://github.com/gruntwork-io/cloud-nuke): A tool for cleaning up your cloud accounts by nuking (deleting) all resources within it.
 
 ### Gruntwork Training Reference Materials
 
