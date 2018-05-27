@@ -79,7 +79,7 @@ These are the Infrastructure Packages Gruntwork currently has available:
     1. [ec2-backup](https://github.com/gruntwork-io/module-ci/tree/master/modules/ec2-backup): Run a Lambda function to make scheduled backups of EC2 Instances.
     1. [install-jenkins](https://github.com/gruntwork-io/module-ci/tree/master/modules/install-jenkins): Install Jenkins on a Linux server.
     1. [jenkins-server](https://github.com/gruntwork-io/module-ci/tree/master/modules/jenkins-server): Deploy a Jenkins server with an ASG, EBS Volume, ALB, and Route 53 settings.
-    1. [precommit-hooks](https://github.com/gruntwork-io/module-ci/tree/master/modules/precommit-hooks): A collection of pre-commit hooks for Terraform, bash, Go, and more.
+    1. [pre-commit hooks](https://github.com/gruntwork-io/pre-commit): A collection of pre-commit hooks for Terraform, bash, Go, and more.
 
 1. **[Relational Database](https://github.com/gruntwork-io/module-data-storage)**: Deploy and manage relational databases such as MySQL and PostgreSQL using Amazon's Relational Database Service (RDS). The main modules are:
     1. [rds](https://github.com/gruntwork-io/module-data-storage/tree/master/modules/rds): Deploy a relational database on top of RDS. Includes support for MySQL, PostgreSQL, Oracle, and SQL Server, as well as automatic failover, read replicas, backups, patching, and encryption.
