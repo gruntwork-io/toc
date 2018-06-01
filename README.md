@@ -139,6 +139,13 @@ These are the Infrastructure Packages Gruntwork currently has available:
     1. [private-tls-cert](https://github.com/hashicorp/terraform-aws-vault/tree/master/modules/private-tls-cert): Generate self-signed TLS certificates for use with Vault.
     1. [vault-cluster](https://github.com/hashicorp/terraform-aws-vault/tree/master/modules/vault-cluster): Deploy a Vault cluster on AWS using an Auto Scaling Group.
 
+1. **[Couchbase](https://github.com/gruntwork-io/terraform-aws-couchbase/)**: Deploy and manage a Couchbase cluster on AWS. The main modules are:
+    1. [install-couchbase-server](https://github.com/gruntwork-io/terraform-aws-couchbase/tree/master/modules/install-couchbase-server): Install Couchbase and its dependencies on a Linux server.
+    1. [install-sync-gateway](https://github.com/gruntwork-io/terraform-aws-couchbase/tree/master/modules/install-sync-gateway): Install Sync Gateway and its dependencies on a Linux server.
+    1. [run-couchbase-server](https://github.com/gruntwork-io/terraform-aws-couchbase/tree/master/modules/run-couchbase-server): Configure and run Couchbase.
+    1. [run-sync-gateway](https://github.com/gruntwork-io/terraform-aws-couchbase/tree/master/modules/run-sync-gateway): Configure and start Sync Gateway.
+    1. [couchbase-cluster](https://github.com/gruntwork-io/terraform-aws-couchbase/tree/master/modules/couchbase-cluster): Deploy a Couchbase cluster on AWS using an Auto Scaling Group.
+
 1. **[ZooKeeper](https://github.com/gruntwork-io/package-zookeeper)**: Deploy and manage a ZooKeeper cluster, along with Exhibitor, on AWS. The main modules are:
     1. [install-zookeeper](https://github.com/gruntwork-io/package-zookeeper/tree/master/modules/install-zookeeper): Install ZooKeeper and its dependencies on a Linux server.
     1. [install-exhibitor](https://github.com/gruntwork-io/package-zookeeper/tree/master/modules/install-exhibitor): Install Exhibitor and its dependencies on a Linux server.
