@@ -6,12 +6,12 @@ _Please note that most of the links are private. If you don't have access to the
 
 ### Terminology
 
-- **Infrastructure Package:** A reusable, tested, documented, configurable, best-practices definition of a single 
+- **Infrastructure Package:** A reusable, tested, documented, configurable, best-practices definition of a single
 piece of Infrastructure (e.g., Docker cluster, VPC, Jenkins, Consul), written using a combination of Terraform, Go, and Bash. This code has been proven in production, providing the underlying infrastructure for [Gruntwork's customers](http://www.gruntwork.io/clients).
 
 - **Module:** Each Infrastructure Package consists one or more orthogonal modules that handle some specific aspect of that Infrastructure Package's functionality. Breaking the code up into multiple modules makes it easier to reuse and compose to handle many different use cases.
 
-- **Reference Architecture:** A best-practices way to combine all of Gruntwork's Infrastructure Packages into an end-to-end tech stack that contains just about all the infrastructure a company needs, including Docker clusters, databases, caches, load balancers, VPCs, CI servers, VPN servers, monitoring systems, log aggregation, alerting, secrets management, and so on. We build this all using infrastructure as code and immutable infrastructure principles, give you 100% of the code, and can get it deployed in minutes. 
+- **Reference Architecture:** A best-practices way to combine all of Gruntwork's Infrastructure Packages into an end-to-end tech stack that contains just about all the infrastructure a company needs, including Docker clusters, databases, caches, load balancers, VPCs, CI servers, VPN servers, monitoring systems, log aggregation, alerting, secrets management, and so on. We build this all using infrastructure as code and immutable infrastructure principles, give you 100% of the code, and can get it deployed in minutes.
 
 ### Infrastructure Packages
 
@@ -22,7 +22,7 @@ These are the Infrastructure Packages Gruntwork currently has available:
     1. [vpc-mgmt](https://github.com/gruntwork-io/module-vpc/tree/master/modules/vpc-mgmt): Launch a VPC meant to house internal tools (e.g. Jenkins, VPN server). This module creates the VPC, 2 "tiers" of subnets (public, private), route tables, routing rules, Internet gateways, and NAT gateways.
     1. [vpc-app-network-acls](https://github.com/gruntwork-io/module-vpc/tree/master/modules/vpc-app-network-acls): Add a default set of Network ACLs to a VPC created using the vpc-app module that strictly control what inbound and outbound network traffic is allowed in each subnet of that VPC.
     1. [vpc-mgmt-network-acls](https://github.com/gruntwork-io/module-vpc/tree/master/modules/vpc-mgmt-network-acls): Add a default set of Network ACLs to a VPC created using the vpc-mgmt module that strictly control what inbound and outbound network traffic is allowed in each subnet of that VPC.
-    1. [vpc-peering](https://github.com/gruntwork-io/module-vpc/tree/master/modules/vpc-peering): Create peering connections between your VPCs to allow them to communicate with each other. 
+    1. [vpc-peering](https://github.com/gruntwork-io/module-vpc/tree/master/modules/vpc-peering): Create peering connections between your VPCs to allow them to communicate with each other.
     1. [vpc-peering-external](https://github.com/gruntwork-io/module-vpc/tree/master/modules/vpc-peering-external): Create peering connections between your VPCs and VPCs managed in other (external) AWS accounts.
 
 1. **[Monitoring and Alerting](https://github.com/gruntwork-io/module-aws-monitoring)**: Configure monitoring, log aggregation, and alerting using CloudWatch, SNS, and S3. The main modules are:
@@ -36,9 +36,9 @@ These are the Infrastructure Packages Gruntwork currently has available:
     1. [ecs-fargate](https://github.com/gruntwork-io/module-ecs/tree/master/modules/ecs-fargate): Deploy a Docker container as a long-running Fargate Service. A Fargate service automatically manages and scales your cluster as needed without you needing to manage the underlying EC2 instances or clusters, it also includes integration with an Application Load Balancer (ALB) or a Network Load Balancer (NLB).
     1. [ecs-service-with-alb](https://github.com/gruntwork-io/module-ecs/tree/master/modules/ecs-service-with-alb): Deploy a Docker container as a long-running ECS Service. Includes support for automated, zero-downtime deployment, auto-restart of crashed containers, and automatic integration with the Application Load Balancer (ALB).
     1. [ecs-deploy](https://github.com/gruntwork-io/module-ecs/tree/master/modules/ecs-deploy): Deploy a Docker container as a short-running ECS Task, wait for it to exit, and exit with the same exit code as the ECS Task.
-    
+
 1. **[AMI Cluster](https://github.com/gruntwork-io/module-asg)**: Deploy a best-practices Auto Scaling Group (ASG) that can run a cluster of servers, automatically restart failed nodes, and scale up and down in response to load. The main modules are:
-    1. [asg-rolling-deploy](https://github.com/gruntwork-io/module-asg/tree/master/modules/asg-rolling-deploy): Create an ASG that can do a zero-downtime rolling deployment. 
+    1. [asg-rolling-deploy](https://github.com/gruntwork-io/module-asg/tree/master/modules/asg-rolling-deploy): Create an ASG that can do a zero-downtime rolling deployment.
     1. [server-group](https://github.com/gruntwork-io/module-asg/tree/master/modules/server-group): Run a fixed-size cluster of servers, backed by ASGs, that can automatically attach EBS Volumes and ENIs, while still supporting zero-downtime deployment.
 
 1. **[Load Balancer](https://github.com/gruntwork-io/module-load-balancer)**: Run a highly-available and scalable load balancer in AWS. The main modules are:
@@ -50,7 +50,7 @@ These are the Infrastructure Packages Gruntwork currently has available:
     1. [scheduled-lambda-job](https://github.com/gruntwork-io/package-lambda/tree/master/modules/scheduled-lambda-job): Configure your Lambda function to run on a scheduled basis, like a cron job.
     1. [keep-warm](https://github.com/gruntwork-io/package-lambda/tree/master/modules/keep-warm): This is a Lambda function you can use to invoke your other Lambda functions on a scheduled basis to keep those functions "warm," avoiding the cold start issue.
     1. [lambda-edge](https://github.com/gruntwork-io/package-lambda/tree/master/modules/lambda-edge): This module makes it easy to deploy and manage an AWS Lambda@Edge function. Lambda@Edge gives you a way to run code on-demand in AWS Edge locations without having to manage servers.
-    
+
 1. **[API Gateway and SAM](https://github.com/gruntwork-io/package-sam)**: Modules for deploying and managing Serverless Application Model applications with Lambda, API Gateway, and Terraform.
     1. [gruntsam](https://github.com/gruntwork-io/package-sam/tree/master/modules/gruntsam): CLI tool that allows you to define your APIs using Swagger, run and test your code locally using SAM, and deploy your code to production using API Gateway and Lambda.
     1. [api-gateway-account-settings](https://github.com/gruntwork-io/package-sam/tree/master/modules/api-gateway-account-settings): set the global (regional) settings required to allow API Gateway to write to CloudWatch logs.
@@ -60,8 +60,8 @@ These are the Infrastructure Packages Gruntwork currently has available:
     1. [aws-auth](https://github.com/gruntwork-io/module-security/tree/master/modules/aws-auth): A script that makes it much easier to use the AWS CLI with MFA and/or multiple AWS accounts.
     1. [cloudtrail](https://github.com/gruntwork-io/module-security/tree/master/modules/cloudtrail): Configure CloudTrail in an AWS account to audit all API calls.
     1. [kms-master-key](https://github.com/gruntwork-io/module-security/tree/master/modules/kms-master-key): Create a master key in Amazon's Key Management Service and configure permissions for that key.
-    1. [ssh-iam](https://github.com/gruntwork-io/module-security/tree/master/modules/ssh-iam): Manage SSH access to your servers using IAM groups. Every developer in an IAM group you specify will be able to SSH to your servers using their own username and SSH key.
-    1. [ssh-iam-selinux-policy](https://github.com/gruntwork-io/module-security/tree/master/modules/ssh-iam-selinux-policy): Install a SELinux Local Policy Module that is necessary to make ssh-iam work on systems with SELinux, such as CentOS.
+    1. [ssh-grunt](https://github.com/gruntwork-io/module-security/tree/master/modules/ssh-grunt): Manage SSH access to your servers using an identity provider, such as AWS IAM groups or Gruntwork Houston. Every developer in a managed group you specify will be able to SSH to your servers using their own username and SSH key.
+    1. [ssh-grunt-selinux-policy](https://github.com/gruntwork-io/module-security/tree/master/modules/ssh-grunt-selinux-policy): Install a SELinux Local Policy Module that is necessary to make ssh-grunt work on systems with SELinux, such as CentOS.
     1. [iam-groups](https://github.com/gruntwork-io/module-security/tree/master/modules/iam-groups): Create a best-practices set of IAM groups for managing access to your AWS account.
     1. [iam-user-password-policy](https://github.com/gruntwork-io/module-security/tree/master/modules/iam-user-password-policy): Set the AWS Account Password Policy that will govern password requirements for IAM Users.
     1. [cross-account-iam-roles](https://github.com/gruntwork-io/module-security/tree/master/modules/cross-account-iam-roles): Create IAM roles that allow IAM users to easily switch between AWS accounts.
@@ -95,7 +95,7 @@ These are the Infrastructure Packages Gruntwork currently has available:
     1. [memcached](https://github.com/gruntwork-io/module-cache/tree/master/modules/memcached): Deploy a Memcached cluster on top of ElastiCache.
 
 1. **[Stateful Server](https://github.com/gruntwork-io/module-server)**: Deploy and manage a single server server on AWS. This is mainly useful for "stateful" servers that store data on their local hard disk, such as WordPress or Jenkins. The main modules are:
-    1. [single-server](https://github.com/gruntwork-io/module-server/tree/master/modules/single-server): Run a server in AWS and configure its IAM role, security group, optional Elastic IP Address (EIP), and optional DNS A record in Route 53. 
+    1. [single-server](https://github.com/gruntwork-io/module-server/tree/master/modules/single-server): Run a server in AWS and configure its IAM role, security group, optional Elastic IP Address (EIP), and optional DNS A record in Route 53.
     1. [attach-eni](https://github.com/gruntwork-io/module-server/tree/master/modules/attach-eni): Attach an Elastic Network Interface (ENI) to a server during boot. This is useful when you need to maintain a pool of IP addresses that remain static even as the underlying servers are replaced.
     1. [persistent-ebs-volume](https://github.com/gruntwork-io/module-server/tree/master/modules/persistent-ebs-volume): Attach and mount an EBS Volume in a server during boot. This is useful when you want to maintain data on a hard disk even as the underlying server is replaced.
     1. [route53-helpers](https://github.com/gruntwork-io/module-server/tree/master/modules/route53-helpers): Attach a DNS A record in Route 53 to a server during boot. This is useful when you want a pool of domain names that remain static even as the underlying servers are replaced.
@@ -110,7 +110,7 @@ These are the Infrastructure Packages Gruntwork currently has available:
     1. [mongodb-cluster](https://github.com/gruntwork-io/package-mongodb/tree/master/modules/mongodb-cluster): Run a MongoDB cluster using an Auto Scaling Group (ASG) and configure its IAM role, security group, EBS Volume, ENI, and private domain name.
     1. [backup-mongodb](https://github.com/gruntwork-io/package-mongodb/tree/master/modules/backup-mongodb): Back up the data in your MongoDB cluster to S3.
     1. [init-mongodb](https://github.com/gruntwork-io/package-mongodb/tree/master/modules/init-mongodb): Configure a MongoDB replica set.
-    
+
 1. **[OpenVPN Server](https://github.com/gruntwork-io/package-openvpn)**: Deploy an OpenVPN server and control access to it using IAM. The main modules are:
     1. [install-openvpn](https://github.com/gruntwork-io/package-openvpn/tree/master/modules/install-openvpn): Install OpenVPN and its dependencies on a Linux server.
     1. [init-openvpn](https://github.com/gruntwork-io/package-openvpn/tree/master/modules/install-openvpn): Initialize an OpenVPN server, including its Public Key Infrastructure (PKI), Certificate Authority (CA) and configuration.
@@ -127,7 +127,7 @@ These are the Infrastructure Packages Gruntwork currently has available:
     1. [install-dnsmasq](https://github.com/hashicorp/terraform-aws-consul/tree/master/modules/install-dnsmasq): Install dnsmasq on a Linux server and configure it to work with Consul as a DNS server. This allows you to use domain names such as my-app.service.consul.
     1. [run-consul](https://github.com/hashicorp/terraform-aws-consul/tree/master/modules/run-consul): Run Consul and automatically bootstrap the cluster.
     1. [consul-cluster](https://github.com/hashicorp/terraform-aws-consul/tree/master/modules/consul-cluster): Deploy a Consul cluster on AWS using an Auto Scaling Group.
-    
+
 1. **[Nomad](https://github.com/hashicorp/terraform-aws-nomad)**: Deploy and manage a Nomad cluster on AWS. The main modules are:
     1. [install-nomad](https://github.com/hashicorp/terraform-aws-nomad/tree/master/modules/install-nomad): Install Nomad and its dependencies on a Linux server.
     1. [run-nomad](https://github.com/hashicorp/terraform-aws-nomad/run-nomad): Run Nomad and automatically connect to a Consul cluster.
@@ -169,7 +169,7 @@ These are the Infrastructure Packages Gruntwork currently has available:
 
 ### Reference Architecture
 
-The Gruntwork Reference Architecture is a best-practices way to combine all of Gruntwork's Infrastructure Packages into an end-to-end tech stack that contains just about all the infrastructure a company needs, including Docker clusters, databases, caches, load balancers, VPCs, CI servers, VPN servers, monitoring systems, log aggregation, alerting, secrets management, and so on. We build this all using infrastructure as code and immutable infrastructure principles, give you 100% of the code, and can get it deployed in minutes. 
+The Gruntwork Reference Architecture is a best-practices way to combine all of Gruntwork's Infrastructure Packages into an end-to-end tech stack that contains just about all the infrastructure a company needs, including Docker clusters, databases, caches, load balancers, VPCs, CI servers, VPN servers, monitoring systems, log aggregation, alerting, secrets management, and so on. We build this all using infrastructure as code and immutable infrastructure principles, give you 100% of the code, and can get it deployed in minutes.
 
 You can view the Reference Architecture for a fictional company, Acme, in one of two flavors:
 
@@ -198,10 +198,10 @@ In a multi-account setup, each environment (e.g., stage, prod, etc) is deployed 
 ### Gruntwork Open Source Tools
 
 1. [terragrunt](https://github.com/gruntwork-io/terragrunt): A thin wrapper for Terraform that provides extra tools for working with multiple Terraform modules.
-    
+
 1. [terratest](https://github.com/gruntwork-io/terratest): The swiss army knife of testing Terraform modules. This is a library written in Go that we use to test all of the code above. It contains a collection of useful utilities: e.g., apply and destroy Terraform code, SSH to servers and run commands, test HTTP endpoints, fetch data from AWS, build AMIs using Packer, run Docker builds, and so on.
 
-1. [fetch](https://github.com/gruntwork-io/fetch): A tool that makes it easy to download files, folders, and release assets from a specific git commit, branch, or tag of public and private GitHub repos. 
+1. [fetch](https://github.com/gruntwork-io/fetch): A tool that makes it easy to download files, folders, and release assets from a specific git commit, branch, or tag of public and private GitHub repos.
 
 1. [gruntwork-installer](https://github.com/gruntwork-io/gruntwork-installer): A script to make it easy to install Gruntwork Modules.
 
@@ -214,5 +214,3 @@ In a multi-account setup, each environment (e.g., stage, prod, etc) is deployed 
 ### Gruntwork Training Reference Materials
 
 1. [infrastructure-as-code-training](https://github.com/gruntwork-io/infrastructure-as-code-training): A sample repo we share with customers when we do training on Terraform, Docker, Packer, AWS, etc.
-
-
