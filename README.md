@@ -160,6 +160,14 @@ These are the Infrastructure Packages Gruntwork currently has available:
     1. [run-kafka-rest](https://github.com/gruntwork-io/package-kafka/tree/master/modules/run-kafka-rest): Configure and run Kafka REST Proxy.
     1. [run-schema-registry](https://github.com/gruntwork-io/package-kafka/tree/master/modules/run-schema-registry): Configure and run Schema Registry.
 
+1. **[ELK Stack](https://github.com/gruntwork-io/package-elk)**: Deploy and manage a best practice ELK stack cluster. The main modules are:
+    1. [elasticsearch-cluster](https://github.com/gruntwork-io/package-elk/tree/master/modules/elasticsearch-cluster): Deploy a cluster of Elasticsearch nodes with zero-downtime deployment and auto-recovery of failed nodes.
+    1. [kibana-cluster](https://github.com/gruntwork-io/package-elk/tree/master/modules/kibana-cluster): Deploy a cluster of Kibana nodes with zero-downtime deployment and auto-recovery of failed nodes.
+    1. [logstash-cluster](https://github.com/gruntwork-io/package-elk/tree/master/modules/logstash-cluster): Deploy a cluster of Logstash nodes with zero-downtime deployment and auto-recovery of failed nodes.
+    1. [elastalert](https://github.com/gruntwork-io/package-elk/tree/master/modules/elastalert): Runs [ElastAlert](https://github.com/Yelp/elastalert) in an instance, which makes API calls to the Elasticsearch cluster and sends alerts based on pre-defined data pattern rules.
+    1. [run-filebeat](https://github.com/gruntwork-io/package-elk/tree/master/modules/run-filebeat): Runs Filebeat on an application server to ship application logs off to Logstash cluster.
+    1. [run-collectd](https://github.com/gruntwork-io/package-elk/tree/master/modules/run-collectd): Runs CollectD on an application server and ships off machine metrics to th Logstash cluster.
+
 1. **[package-terraform-utilities](https://github.com/gruntwork-io/package-terraform-utilities)**: Useful Terraform utilities. The main modules are:
     1. [intermediate-variable](https://github.com/gruntwork-io/package-terraform-utilities/tree/master/modules/intermediate-variable): A way to define intermediate variables in Terraform.
     1. [join-path](https://github.com/gruntwork-io/package-terraform-utilities/tree/master/modules/join-path): Join a list of given path parts (that is, file and folder names) into a single path with the appropriate path separator (backslash or forward slash) for the current operating system.
