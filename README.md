@@ -146,6 +146,11 @@ These are the Infrastructure Packages Gruntwork currently has available:
     1. [run-sync-gateway](https://github.com/gruntwork-io/terraform-aws-couchbase/tree/master/modules/run-sync-gateway): Configure and start Sync Gateway.
     1. [couchbase-cluster](https://github.com/gruntwork-io/terraform-aws-couchbase/tree/master/modules/couchbase-cluster): Deploy a Couchbase cluster on AWS using an Auto Scaling Group.
 
+1. **[InfluxDB](https://github.com/gruntwork-io/terraform-aws-influx/)**: Deploy and manage an InfluxDB cluster on AWS. The main modules are:
+    1. [install-influxdb](https://github.com/gruntwork-io/terraform-aws-influx/tree/master/modules/install-influxdb): Install InfluxDB Enterprise and its dependencies on a Linux server.
+    1. [run-influxdb](https://github.com/gruntwork-io/terraform-aws-influx/tree/master/modules/run-influxdb): Configure and run InfluxDB.
+    1. [influxdb-cluster](https://github.com/gruntwork-io/terraform-aws-influx/tree/master/modules/influxdb-cluster): Deploy an InfluxDB cluster on AWS using an Auto Scaling Group.
+
 1. **[ZooKeeper](https://github.com/gruntwork-io/package-zookeeper)**: Deploy and manage a ZooKeeper cluster, along with Exhibitor, on AWS. The main modules are:
     1. [install-zookeeper](https://github.com/gruntwork-io/package-zookeeper/tree/master/modules/install-zookeeper): Install ZooKeeper and its dependencies on a Linux server.
     1. [install-exhibitor](https://github.com/gruntwork-io/package-zookeeper/tree/master/modules/install-exhibitor): Install Exhibitor and its dependencies on a Linux server.
