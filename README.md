@@ -173,7 +173,7 @@ These are the Infrastructure Packages Gruntwork currently has available:
     1. [run-filebeat](https://github.com/gruntwork-io/package-elk/tree/master/modules/run-filebeat): Runs Filebeat on an application server to ship application logs off to Logstash cluster.
     1. [run-collectd](https://github.com/gruntwork-io/package-elk/tree/master/modules/run-collectd): Runs CollectD on an application server and ships off machine metrics to th Logstash cluster.
 
-1. **[Kubernetes / EKS](https://github.com/gruntwork-io/package-k8s)**: _(This package is in private beta)_ Deploy and manage a best practice EKS cluster. The main modules are:
+1. **[Kubernetes / EKS](https://github.com/gruntwork-io/package-k8s)**: _(This package is in private beta)_ Deploy and manage a best practice Kubernetes cluster and Kubernetes services. The main modules are:
     1. [eks-cluster-control-plane](https://github.com/gruntwork-io/package-k8s/tree/master/modules/eks-cluster-control-plane): Deploy an EKS control plane managed by AWS with support to configure your local `kubectl` to authenticate with EKS.
     1. [eks-cluster-workers](https://github.com/gruntwork-io/package-k8s/tree/master/modules/eks-cluster-workers): Deploy an a cluster of EC2 instances registered as Kubernetes workers with auto-recovery of failed nodes.
     1. [eks-k8s-role-mapping](https://github.com/gruntwork-io/package-k8s/tree/master/modules/eks-k8s-role-mapping): Manage mappings between IAM roles and RBAC groups as code for provisioning accounts that can access the Kubernetes API.
