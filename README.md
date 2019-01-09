@@ -234,3 +234,38 @@ In a multi-account setup, each environment (e.g., stage, prod, etc) is deployed 
 ### Gruntwork Training Reference Materials
 
 1. [infrastructure-as-code-training](https://github.com/gruntwork-io/infrastructure-as-code-training): A sample repo we share with customers when we do training on Terraform, Docker, Packer, AWS, etc.
+
+### Operating system compatibility
+
+Here's a summary of the operating systems supported by Gruntwork as of January, 2019:
+
+* **Modules vs dev tools**: Just about all of our _modules_ for running various types of infrastructure—e.g., Kafka, ZooKeeper, ELK, MongoDB, OpenVPN, Jenkins, etc—assume they are being deployed on Linux servers. In practice, this means that all the `install-xxx` and `run-xxx` scripts (e.g., install-kafka, run-kafka) are written in Bash and don't work on Windows. However, our _dev tools_—the tools that we expect developers to run on their own computer to interact with the infrastructure—are often portable and work on most major operating systems. 
+
+* **The basic dev tools**: The basic dev tools we use are Terraform, Packer, and Docker, all of which should work on all major operating systems.
+
+* **Terraform modules**: Just about all the modules we write in Terraform work on all major operating systems. However, there are a few places where we were forced to call out to scripts from our Terraform code. Most of these scripts are Python and work on all major operating systems, but there are a couple places where we lazily call Bash code (mostly `sleep 30` to work around Terraform bugs). If you run into a portability issue, please report it as a bug, and we'll get it fixed!
+
+* **Go**: We've written a number of dev tools in Go, which we compile into standalone binaries that should work on every major operating system. This applies to: 
+    - Terragrunt
+    - Terratest
+    - OpenVPN: `openvpn-admin`
+    - Houston: `houston` CLI
+    - Security: `gruntkms`, `ssh-grunt`
+    - cloud-nuke
+    - API Gateway and SAM: `gruntsam`
+    - Kubernetes / EKS: `kubergrunt`
+
+* **Python**: We have some dev tools that we wrote in Python. Most of these work on all major operating systems, but there are occasional gotchas with Windows path length limits, and some Python 2 vs 3 issues. This applies to:
+    - AMI cluster: The `asg-rolling-deploy` and `server-group` Terraform modules call out to Python scripts.
+    - Docker cluster: `roll-out-ecs-cluster-update.py`
+
+* **Bash**: We have a small number of dev tools that we wrote in Bash. These will work on Linux and Mac, but not on Windows (unless you use Cygwin or the new Windows 10 Bash Shell, but even then, portability isn't guaranteed). This applies to:
+    - Gruntwork Installer
+    - CI / CD: `attach-eni`, `mount-ebs-volume`, `add-dns-a-record`
+    - Stateful server: `aws-helpers`, `build-helpers`, `check-url`, `circleci-helpers`, `git-helpers`, `terraform-helpers`
+    - Security: `aws-auth`
+    - Docker cluster: `ecs-deploy`
+
+* **Tests**: It's worth noting all of our tests currently run on Linux, which means Windows-specific bugs do slip through periodically. 
+
+* **Need Windows support?** The vast majority of our customers use Linux or Mac, so we haven't prioritized improving our Windows support. If you would like us to improve our Windows support, we would be happy to discuss a project to do so as part of our [Custom Module Development](https://gruntwork.io/custom-module-development/) process.
