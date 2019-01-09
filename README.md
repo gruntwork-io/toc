@@ -261,8 +261,8 @@ Here's a summary of the operating systems supported by Gruntwork as of January, 
 
 * **Bash**: We have a small number of dev tools that we wrote in Bash. These will work on Linux and Mac, but not on Windows (unless you use Cygwin or the new Windows 10 Bash Shell, but even then, portability isn't guaranteed). This applies to:
     - Gruntwork Installer
-    - CI / CD: `attach-eni`, `mount-ebs-volume`, `add-dns-a-record`
-    - Stateful server: `aws-helpers`, `build-helpers`, `check-url`, `circleci-helpers`, `git-helpers`, `terraform-helpers`
+    - CI / CD: `aws-helpers`, `build-helpers`, `check-url`, `circleci-helpers`, `git-helpers`, `terraform-helpers`
+    - Stateful server: `attach-eni`, `mount-ebs-volume`, `add-dns-a-record`
     - Security: `aws-auth`
     - Docker cluster: `ecs-deploy`
 
