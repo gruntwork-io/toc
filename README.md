@@ -173,17 +173,28 @@ These are the Infrastructure Packages Gruntwork currently has available:
     1. [run-filebeat](https://github.com/gruntwork-io/package-elk/tree/master/modules/run-filebeat): Runs Filebeat on an application server to ship application logs off to Logstash cluster.
     1. [run-collectd](https://github.com/gruntwork-io/package-elk/tree/master/modules/run-collectd): Runs CollectD on an application server and ships off machine metrics to th Logstash cluster.
 
-1. **[Kubernetes / EKS](https://github.com/gruntwork-io/package-k8s)**: _(This package is in private beta)_ Deploy and manage a best practice Kubernetes cluster and Kubernetes services. The main modules are:
-    1. [eks-cluster-control-plane](https://github.com/gruntwork-io/package-k8s/tree/master/modules/eks-cluster-control-plane): Deploy an EKS control plane managed by AWS with support to configure your local `kubectl` to authenticate with EKS.
-    1. [eks-cluster-workers](https://github.com/gruntwork-io/package-k8s/tree/master/modules/eks-cluster-workers): Deploy an a cluster of EC2 instances registered as Kubernetes workers with auto-recovery of failed nodes.
-    1. [eks-k8s-role-mapping](https://github.com/gruntwork-io/package-k8s/tree/master/modules/eks-k8s-role-mapping): Manage mappings between IAM roles and RBAC groups as code for provisioning accounts that can access the Kubernetes API.
-    1. [k8s-scripts](https://github.com/gruntwork-io/package-k8s/tree/master/modules/k8s-scripts): Scripts to help setup operator machines to be able to deploy applications on Kubernetes with `kubectl`.
+1. **Kubernetes**: _(The packages in this category are in private beta)_ Deploy and manage a best practice Kubernetes cluster and Kubernetes services.
+    1. **[EKS](https://github.com/gruntwork-io/terraform-aws-eks)**: Deploy and manage a best practice EKS cluster. The main modules are:
+        1. [eks-cluster-control-plane](https://github.com/gruntwork-io/terraform-aws-eks/tree/master/modules/eks-cluster-control-plane): Deploy an EKS control plane managed by AWS with support to configure your local `kubectl` to authenticate with EKS.
+        1. [eks-cluster-workers](https://github.com/gruntwork-io/terraform-aws-eks/tree/master/modules/eks-cluster-workers): Deploy an a cluster of EC2 instances registered as Kubernetes workers with auto-recovery of failed nodes.
+        1. [eks-k8s-role-mapping](https://github.com/gruntwork-io/terraform-aws-eks/tree/master/modules/eks-k8s-role-mapping): Manage mappings between IAM roles and RBAC groups as code for provisioning accounts that can access the Kubernetes API.
+        1. [eks-vpc-tags](https://github.com/gruntwork-io/terraform-aws-eks/tree/master/modules/eks-vpc-tags): Provides tags for your VPC to ensure Kubernetes uses it for allocating IP addresses to Pods and Services.
+    1. **[Helm Server](https://github.com/gruntwork-io/terraform-kubernetes-helm)**: Deploy and manage best practice Tiller Pods (Helm Server) on your Kubernetes cluster. The main modules are:
+        1. [k8s-namespace](https://github.com/gruntwork-io/terraform-kubernetes-helm/tree/master/modules/k8s-namespace): Create a namespace in Kubernetes with a set of predefined RBAC roles.
+        1. [k8s-namespace-roles](https://github.com/gruntwork-io/terraform-kubernetes-helm/tree/master/modules/k8s-namespace-roles): Create a set of predefined RBAC roles for use with an existing namespace.
+        1. [k8s-service-account](https://github.com/gruntwork-io/terraform-kubernetes-helm/tree/master/modules/k8s-service-account): Create a Kubernetes service account with options to bind the account to a set of RBAC roles.
+    1. **[Application Service Helm Charts](https://github.com/gruntwork-io/helm-kubernetes-services/)**: Package your application services into a best practice Kubernetes deployment. The main charts are:
+        1. [k8s-service](https://github.com/gruntwork-io/helm-kubernetes-services/blob/master/charts/k8s-service): Package your application service docker container and deploy to Kubernetes as a Deployment. Supports replication, rolling deployment, logging, configuration values, and secrets management.
+    1. **[kubergrunt](https://github.com/gruntwork-io/kubergrunt)**: A command line tool that fill in the gaps between Terraform, Helm, and Kubectl for managing a Kubernetes Cluster. Includes support for configuring clients to access EKS via kubectl and deploying Tiller with automated TLS certificate management.
 
 
 1. **[package-terraform-utilities](https://github.com/gruntwork-io/package-terraform-utilities)**: Useful Terraform utilities. The main modules are:
     1. [intermediate-variable](https://github.com/gruntwork-io/package-terraform-utilities/tree/master/modules/intermediate-variable): A way to define intermediate variables in Terraform.
     1. [join-path](https://github.com/gruntwork-io/package-terraform-utilities/tree/master/modules/join-path): Join a list of given path parts (that is, file and folder names) into a single path with the appropriate path separator (backslash or forward slash) for the current operating system.
-    1 [operating-system](https://github.com/gruntwork-io/package-terraform-utilities/tree/master/modules/operating-system): Figure out what operating system is being used to run Terraform from inside your Terraform code.
+    1. [operating-system](https://github.com/gruntwork-io/package-terraform-utilities/tree/master/modules/operating-system): Figure out what operating system is being used to run Terraform from inside your Terraform code.
+    1. [require-executable](https://github.com/gruntwork-io/package-terraform-utilities/tree/master/modules/require-executable): Verify an executable exists on the host system, and emit a friendly error message if it does not.
+    1. [run-pex-as-data-source](https://github.com/gruntwork-io/package-terraform-utilities/tree/master/modules/run-pex-as-data-source): Run a python script with dependencies packaged together as an external data source in a portable way.
+    1. [run-pex-as-resource](https://github.com/gruntwork-io/package-terraform-utilities/tree/master/modules/run-pex-as-resource): Run a python script with dependencies packaged together as a local-exec provisioner on a null resource in a portable way.
 
 1. **[gruntwork](https://github.com/gruntwork-io/gruntwork)**: A CLI tool to perform Gruntwork tasks, such as bootstrapping your GitHub and AWS accounts for the Reference Architecture.
 
