@@ -322,27 +322,27 @@ Note, you must be a [Gruntwork Subscriber](https://www.gruntwork.io/pricing/) to
 
 The approach we recommend is to reference the code directly from the Gruntwork repos.
 
-For Terraform code, you can use a Gruntwork module by referencing the Git URL in the `source` parameter. For example, to use our [VPC module](https://github.com/gruntwork-io/module-vpc) in your code:
+**For Terraform code**, you can use a Gruntwork module by referencing the Git URL in the `source` parameter. For example, to use our [VPC module](https://github.com/gruntwork-io/module-vpc) in your code:
 
 ```hcl
 # Create a VPC using the Gruntwork VPC module
 module "vpc_app" {
   source = "git::git@github.com:gruntwork-io/module-vpc.git//modules/vpc-app?ref=v0.5.5"
 
-  vpc_name   = "prod"
-  aws_region = "us-east-1"
-  cidr_block = "10.0.0.0/18"
+  vpc_name         = "prod"
+  aws_region       = "us-east-1"
+  cidr_block       = "10.0.0.0/18"
   num_nat_gateways = 3
 }
 ```
 
 A few things to note about the `source` URL above:
 
-1. It's a **versioned** URL: `ref=v0.5.5`. This way, you're at a known, fixed version, rather than "always latest." We use [semantic versioning](https://semver.org/)  for our code and publish release notes for each release so you know how to upgrade and if there were any backward incompatible changes. If you want to upgrade to new infrastructure, just bump the version number and run `terraform apply`!
+1. **versioned URL** (note the `ref=v0.5.5`): This gives you a known, fixed version of each module, with consistent and reproducible behavior. We use [semantic versioning](https://semver.org/)  for our code and publish release notes for each release so you know how to upgrade and if there were any backward incompatible changes. If you want to upgrade to new infrastructure, just bump the version number and run `terraform apply`!
 
-1. It uses SSH for authentication. If you [associate an SSH key with your GitHub account](https://help.github.com/en/articles/adding-a-new-ssh-key-to-your-github-account) and use [ssh-agent](https://help.github.com/en/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent), you will not be prompted for any passwords. You can use a similar approach with your machine users in CI / CD environments.
+1. **SSH for authentication**: If you [associate an SSH key with your GitHub account](https://help.github.com/en/articles/adding-a-new-ssh-key-to-your-github-account) and use [ssh-agent](https://help.github.com/en/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent), you will not be prompted for any passwords. You can use a similar approach with your machine users in CI / CD environments.
 
-For binaries and scripts, you can use the [gruntwork-installer](https://github.com/gruntwork-io/gruntwork-installer) with the `--repo` parameter pointing to Gruntwork repos. For example, to install the [ssh-grunt binary](https://github.com/gruntwork-io/module-security/tree/master/modules/ssh-grunt) (which lets you manage SSH access using an Identity Provider such as IAM, Google, ADFS, etc) on your EC2 Instances:
+**For binaries and scripts**, you can use the [gruntwork-installer](https://github.com/gruntwork-io/gruntwork-installer) with the `--repo` parameter pointing to Gruntwork repos. For example, to install the [ssh-grunt binary](https://github.com/gruntwork-io/module-security/tree/master/modules/ssh-grunt) (which lets you manage SSH access using an Identity Provider such as IAM, Google, ADFS, etc) on your EC2 Instances:
 
 ```bash
 gruntwork-install --binary-name 'gruntkms' --repo https://github.com/gruntwork-io/gruntkms --tag 'v0.0.8'
@@ -350,9 +350,9 @@ gruntwork-install --binary-name 'gruntkms' --repo https://github.com/gruntwork-i
 
 A few notes about the `gruntwork-install` call above:
 
-1. Once again, it's a **versioned** URL: `--tag 'v0.0.8'`. If you want to upgrade to a new binary or script, just bump the version number and re-run!
-1. This installs a pre-compiled binary for your operating system. `gruntkms` is one of the many tools we write in Go and compile as standalone binaries for different operating systems.
-1. We use a [GitHub personal access token](https://help.github.com/en/articles/creating-a-personal-access-token-for-the-command-line) to authenticate. You set your token as the environment variable `GITHUB_OAUTH_TOKEN`.
+1. **Versioned URL** (note the `--tag 'v0.0.8'`: This gives you a known, fixed version of each script and binary, with consistent and reproducible behavior. If you want to upgrade to a new binary or script, just bump the version number and re-run!
+1. **GitHub  authentication**: We use a [GitHub personal access token](https://help.github.com/en/articles/creating-a-personal-access-token-for-the-command-line) to authenticate. You set your token as the environment variable `GITHUB_OAUTH_TOKEN`.
+1. **Pre-compiled binaries**: The example above installs a pre-compiled binary for your operating system. `gruntkms` is one of the many tools we write in Go and compile as standalone binaries for different operating systems.
 
 
 #### Fork the code to your own repos
@@ -364,15 +364,15 @@ Here's what you would need to do:
 1. Copy each Gruntwork repo into your private repositories.
 1. You'll also want to copy all the versioned releases (see the `/releases` page for each repo).
 1. For repos that contain pre-built binaries (such as `ssh-grunt` mentioned earlier), you'll want to copy those binaries into the releases as well.
-1. Within each repo, search for any cross-references to other Gruntwork repos. Most of our repos are standalone, but some of the Terraform and Go code is shared across repos. You'll need to update Terraform `source` URLs and Go `import` statements from `github.com/gruntwork-io` to your private Git repo URLs.
+1. Within each repo, search for any cross-references to other Gruntwork repos. Most of our repos are standalone, but some of the Terraform and Go code is shared across repos (e.g., our `package-kafka` and `package-zookeeper` repos use `module-asg` under the hood to run an Auto Scaling Group). You'll need to update Terraform `source` URLs and Go `import` statements from `github.com/gruntwork-io` to your private Git repo URLs.
 1. You'll want to automate the entire process and run it on a regular schedule (e.g., daily). Our repos are updated continuously, both by the Gruntwork team and contributions from our community fo customers (see [our monthly newsletter](https://blog.gruntwork.io/tagged/gruntwork-newsletter) for details), so you'll want to pull in these updates as quickly as you can.
 
 Once you've done all the above, you can now use the modules, scripts, and binaries in your code using the same techniques as mentioned earlier (Terraform `module` with `source` URL and `gruntwork-install` with the `--repo` param).
 
 While this approach works, it obviously has some downsides:
 
-1. You have to do a lot of work to copy the  repos, releases, and pre-compiled binaries up-front.
-1. You have to do more work to run this process on a regular basis and deal with merging in changes.
-1. If your team isn't directly using the Gruntwork GitHub repos on a regular basis, then you're less to participate in issues and pull requests, and you won't be benefitting as much from the Gruntwork community.
+1. You have to do a lot of work up-front to copy the  repos, releases, and pre-compiled binaries and update internal links.
+1. You have to do more work to run this process on a regular basis and deal with merging conflicts.
+1. If your team isn't directly using the Gruntwork GitHub repos on a regular basis, then you're less likely to participate in issues and pull requests, and you won't be benefitting as much from the Gruntwork community.
 
 So, whenever possible, use option #1, referencing Gruntwork repos directly. If your team relies on NPM, Docker Hub, Maven Central, or the Terraform Registry, this is no different! However, if your company completely bans all outside sources, then follow the instructions above to fork our code.
