@@ -338,7 +338,7 @@ module "vpc_app" {
 
 A few things to note about the `source` URL above:
 
-1. **versioned URL** (note the `ref=v0.5.5`): This gives you a known, fixed version of each module, with consistent and reproducible behavior. We use [semantic versioning](https://semver.org/)  for our code and publish release notes for each release so you know how to upgrade and if there were any backward incompatible changes. If you want to upgrade to new infrastructure, just bump the version number and run `terraform apply`!
+1. **Versioned URL** (note the `ref=v0.5.5`): This gives you a known, fixed version of each module, with consistent and reproducible behavior. We use [semantic versioning](https://semver.org/)  for our code and publish release notes for each release so you know how to upgrade and if there were any backward incompatible changes. If you want to upgrade to new infrastructure, just bump the version number and run `terraform apply`!
 
 1. **SSH for authentication**: If you [associate an SSH key with your GitHub account](https://help.github.com/en/articles/adding-a-new-ssh-key-to-your-github-account) and use [ssh-agent](https://help.github.com/en/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent), you will not be prompted for any passwords. You can use a similar approach with your machine users in CI / CD environments.
 
