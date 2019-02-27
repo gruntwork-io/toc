@@ -4,6 +4,16 @@ This repo is a convenient way to find all of the repositories created and mainta
 
 _Please note that most of the links are private. If you don't have access to them, you'll get a 404 page! To gain access, you must be a Gruntwork customer. See [gruntwork.io](http://www.gruntwork.io/) for more info and feel free to reach out to us at [info@gruntwork.io](mailto:info@gruntwork.io) if you have questions._
 
+### Outline
+
+1. [Terminology](#terminology)
+1. [Infrastructure Packages](#infrastructure-packages)
+1. [Reference Architecture](#reference-architecture)
+1. [Gruntwork Open Source Tools](#gruntwork-open-source-tools)
+1. [Gruntwork Training Reference Materials](#gruntwork-training-reference-materials)
+1. [Operating System Compatibility](#operating-system-compatibility)
+1. [How to use the code](#how-to-use-the-code)
+
 ### Terminology
 
 - **Infrastructure Package:** A reusable, tested, documented, configurable, best-practices definition of a single
@@ -244,7 +254,24 @@ In a multi-account setup, each environment (e.g., stage, prod, etc) is deployed 
 
 ### Gruntwork Training Reference Materials
 
+1. [Gruntwork DevOps Training Library](https://gruntwork.io/training/): A collection of training video courses that teach you DevOps.
+
+1. [A Comprehensive Guide to Terraform](https://blog.gruntwork.io/a-comprehensive-guide-to-terraform-b3d32832baca): Our blog post series on how to use Terraform that covers how Terraform compares to Chef, Puppet, Ansible, and CloudFormation, introduces Terraform syntax, discuss how to manage Terraform state, shows how to build reusable infrastructure with Terraform modules, and introduces a workflow for how to use Terraform as a team.
+
+1. [A Comprehensive Guide to Building a Scalable Web App on Amazon Web Services](https://www.airpair.com/aws/posts/building-a-scalable-web-app-on-amazon-web-services-p1): A definitive guide on how to think about building apps on AWS, including how to think about scalability and high availability, an overview of how to use the most important AWS services, and an introduction to cloud-native architecture.
+
+1. [A Comprehensive Guide to Authenticating to AWS on the Command Line](https://blog.gruntwork.io/a-comprehensive-guide-to-authenticating-to-aws-on-the-command-line-63656a686799): Our blog post series on how to authenticate to AWS on the command-line, including how to use Access Keys, IAM Roles, MFA, the Credentials File, Environment Eariables, Instance Metadata, and Gruntwork Houston.
+
+1. [Lessons Learned From Writing Over 300,000 Lines of Infrastructure Code](https://blog.gruntwork.io/5-lessons-learned-from-writing-over-300-000-lines-of-infrastructure-code-36ba7fadeac1): A concise masterclass on how to write infrastructure code.
+
+1. [Reusable, composable, battle-tested Terraform modules](https://blog.gruntwork.io/reusable-composable-battle-tested-terraform-modules-9c2fb53bc034): A talk that will change how you deploy and manage infrastructure.
+
+1. [Gruntwork Production Readiness Checklist](https://gruntwork.io/devops-checklist/): Are you ready to go to prod on AWS? Use this checklist to find out.
+
+1. [Terraform: Up & Running](https://www.terraformupandrunning.com/): This book is the fastest way to get up and running with Terraform, an open source tool that allows you to define your infrastructure as code and to deploy and manage that infrastructure across a variety of public cloud providers (e.g., AWS, Azure, Google Cloud, DigitalOcean) and private cloud and virtualization platforms (e.g. OpenStack, VMWare).
+
 1. [infrastructure-as-code-training](https://github.com/gruntwork-io/infrastructure-as-code-training): A sample repo we share with customers when we do training on Terraform, Docker, Packer, AWS, etc.
+
 
 ### Operating system compatibility
 
@@ -280,3 +307,72 @@ Here's a summary of the operating systems supported by Gruntwork as of January, 
 * **Tests**: It's worth noting all of our tests currently run on Linux, which means Windows-specific bugs do slip through periodically. 
 
 * **Need Windows support?** The vast majority of our customers use Linux or Mac, so we haven't prioritized improving our Windows support. If you would like us to improve our Windows support, we would be happy to discuss a project to do so as part of our [Custom Module Development](https://gruntwork.io/custom-module-development/) process.
+
+
+### How to use the code
+
+There's a lot of great code here, but how do you use it in your own infracture and apps? There are two options:
+
+1. [Reference it from the Gruntwork repos](#reference-it-from-the-gruntwork-repos) (recommended)
+1. [Fork the code to your own repos](#fork-the-code-to-your-own-repos)
+
+Note, you must be a [Gruntwork Subscriber](https://www.gruntwork.io/pricing/) to use either of these options!
+
+#### Reference it from the Gruntwork repos
+
+The approach we recommend is to reference the code directly from the Gruntwork repos.
+
+For Terraform code, you can use a Gruntwork module by referencing the Git URL in the `source` parameter. For example, to use our [VPC module](https://github.com/gruntwork-io/module-vpc) in your code:
+
+```hcl
+# Create a VPC using the Gruntwork VPC module
+module "vpc_app" {
+  source = "git::git@github.com:gruntwork-io/module-vpc.git//modules/vpc-app?ref=v0.5.5"
+
+  vpc_name   = "prod"
+  aws_region = "us-east-1"
+  cidr_block = "10.0.0.0/18"
+  num_nat_gateways = 3
+}
+```
+
+A few things to note about the `source` URL above:
+
+1. It's a **versioned** URL: `ref=v0.5.5`. This way, you're at a known, fixed version, rather than "always latest." We use [semantic versioning](https://semver.org/)  for our code and publish release notes for each release so you know how to upgrade and if there were any backward incompatible changes. If you want to upgrade to new infrastructure, just bump the version number and run `terraform apply`!
+
+1. It uses SSH for authentication. If you [associate an SSH key with your GitHub account](https://help.github.com/en/articles/adding-a-new-ssh-key-to-your-github-account) and use [ssh-agent](https://help.github.com/en/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent), you will not be prompted for any passwords. You can use a similar approach with your machine users in CI / CD environments.
+
+For binaries and scripts, you can use the [gruntwork-installer](https://github.com/gruntwork-io/gruntwork-installer) with the `--repo` parameter pointing to Gruntwork repos. For example, to install the [ssh-grunt binary](https://github.com/gruntwork-io/module-security/tree/master/modules/ssh-grunt) (which lets you manage SSH access using an Identity Provider such as IAM, Google, ADFS, etc) on your EC2 Instances:
+
+```bash
+gruntwork-install --binary-name 'gruntkms' --repo https://github.com/gruntwork-io/gruntkms --tag 'v0.0.8'
+```
+
+A few notes about the `gruntwork-install` call above:
+
+1. Once again, it's a **versioned** URL: `--tag 'v0.0.8'`. If you want to upgrade to a new binary or script, just bump the version number and re-run!
+1. This installs a pre-compiled binary for your operating system. `gruntkms` is one of the many tools we write in Go and compile as standalone binaries for different operating systems.
+1. We use a [GitHub personal access token](https://help.github.com/en/articles/creating-a-personal-access-token-for-the-command-line) to authenticate. You set your token as the environment variable `GITHUB_OAUTH_TOKEN`.
+
+
+#### Fork the code to your own repos
+
+Some companies do not allow dependencies on external repos and require that everything is pulled from an internal source (e.g., GitHub Enterprise, BitBucket, etc). In that case, the [Gruntwork License](https://gruntwork.io/terms/) gives you permissions to fork our code into your own repos.
+
+Here's what you would need to do:
+
+1. Copy each Gruntwork repo into your private repositories.
+1. You'll also want to copy all the versioned releases (see the `/releases` page for each repo).
+1. For repos that contain pre-built binaries (such as `ssh-grunt` mentioned earlier), you'll want to copy those binaries into the releases as well.
+1. Within each repo, search for any cross-references to other Gruntwork repos. Most of our repos are standalone, but some of the Terraform and Go code is shared across repos. You'll need to update Terraform `source` URLs and Go `import` statements from `github.com/gruntwork-io` to your private Git repo URLs.
+1. You'll want to automate the entire process and run it on a regular schedule (e.g., daily). Our repos are updated continuously, both by the Gruntwork team and contributions from our community fo customers (see [our monthly newsletter](https://blog.gruntwork.io/tagged/gruntwork-newsletter) for details), so you'll want to pull in these updates as quickly as you can.
+
+Once you've done all the above, you can now use the modules, scripts, and binaries in your code using the same techniques as mentioned earlier (Terraform `module` with `source` URL and `gruntwork-install` with the `--repo` param).
+
+While this approach works, it obviously has some downsides:
+
+1. You have to do a lot of work to copy the  repos, releases, and pre-compiled binaries up-front.
+1. You have to do more work to run this process on a regular basis and deal with merging in changes.
+1. If your team isn't directly using the Gruntwork GitHub repos on a regular basis, then you're less to participate in issues and pull requests, and you won't be benefitting as much from the Gruntwork community.
+
+So, whenever possible, use option #1, referencing Gruntwork repos directly. If your team relies on NPM, Docker Hub, Maven Central, or the Terraform Registry, this is no different! However, if your company completely bans all outside sources, then follow the instructions above to fork our code.
