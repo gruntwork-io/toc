@@ -260,7 +260,7 @@ In a multi-account setup, each environment (e.g., stage, prod, etc) is deployed 
 
 1. [A Comprehensive Guide to Building a Scalable Web App on Amazon Web Services](https://www.airpair.com/aws/posts/building-a-scalable-web-app-on-amazon-web-services-p1): A definitive guide on how to think about building apps on AWS, including how to think about scalability and high availability, an overview of how to use the most important AWS services, and an introduction to cloud-native architecture.
 
-1. [A Comprehensive Guide to Authenticating to AWS on the Command Line](https://blog.gruntwork.io/a-comprehensive-guide-to-authenticating-to-aws-on-the-command-line-63656a686799): Our blog post series on how to authenticate to AWS on the command-line, including how to use Access Keys, IAM Roles, MFA, the Credentials File, Environment Eariables, Instance Metadata, and Gruntwork Houston.
+1. [A Comprehensive Guide to Authenticating to AWS on the Command Line](https://blog.gruntwork.io/a-comprehensive-guide-to-authenticating-to-aws-on-the-command-line-63656a686799): Our blog post series on how to authenticate to AWS on the command-line, including how to use Access Keys, IAM Roles, MFA, the Credentials File, Environment Variables, Instance Metadata, and Gruntwork Houston.
 
 1. [Lessons Learned From Writing Over 300,000 Lines of Infrastructure Code](https://blog.gruntwork.io/5-lessons-learned-from-writing-over-300-000-lines-of-infrastructure-code-36ba7fadeac1): A concise masterclass on how to write infrastructure code.
 
@@ -350,9 +350,10 @@ gruntwork-install --binary-name 'gruntkms' --repo https://github.com/gruntwork-i
 
 A few notes about the `gruntwork-install` call above:
 
-1. **Versioned URL** (note the `--tag 'v0.0.8'`: This gives you a known, fixed version of each script and binary, with consistent and reproducible behavior. If you want to upgrade to a new binary or script, just bump the version number and re-run!
+1. **Versioned URL** (note the `--tag 'v0.0.8'`): This gives you a known, fixed version of each script and binary, with consistent and reproducible behavior. If you want to upgrade to a new binary or script, just bump the version number and re-run!
 1. **GitHub  authentication**: We use a [GitHub personal access token](https://help.github.com/en/articles/creating-a-personal-access-token-for-the-command-line) to authenticate. You set your token as the environment variable `GITHUB_OAUTH_TOKEN`.
 1. **Pre-compiled binaries**: The example above installs a pre-compiled binary for your operating system. `gruntkms` is one of the many tools we write in Go and compile as standalone binaries for different operating systems.
+1. **Windows users**: `gruntwork-install` is a Bash script, which should work fine on Linux and OS X, but might be tricky to use with Windows. In those cases, you'll want to download the binaries you depend on manually.
 
 
 #### Fork the code to your own repos
