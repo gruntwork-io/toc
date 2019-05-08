@@ -31,7 +31,7 @@ function clean_outfolder {
   local -r abs_target_dir="$(realpath $target_dir)"
 
   # Remove anything that is not markdown
-  find "$abs_target_dir" -not -name "*.md" -delete
+  find "$abs_target_dir" -type f -not -name "*.md" -delete
 }
 
 function build_for_docssite {
