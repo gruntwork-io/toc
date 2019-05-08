@@ -22,7 +22,13 @@ tags: ["terraform"]\
 ---'
 
   sed -i'' -e "1 s/^.*$/$frontmatter/g" "$infile"
-  sed -i'' -e "s/__DATE__/$(date +%Y-%m-%d)/g" "$infile"
+  sed -i'' -e "s/__DATE__/$(get_last_commit_date)/g" "$infile"
+}
+
+function get_last_commit_date {
+  # We use python to get the date of the last commit in the format YYYY-MM-DD. This works by getting the timestamp of
+  # the last commit using `git log -1`, and then converting to the desired output format.
+  python -c "import time; print(time.strftime('%Y-%m-%d', time.localtime($(git log -1 --format="%at"))))"
 }
 
 function clean_outfolder {
