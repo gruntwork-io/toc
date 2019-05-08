@@ -33,4 +33,4 @@ function build_for_docssite {
 
 }
 
-build_for_docssite ./generated/introduction/library-catalog/index.md
+build_for_docssite ./generated/library-catalog/index.md
