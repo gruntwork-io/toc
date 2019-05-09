@@ -27,6 +27,19 @@ piece of Infrastructure (e.g., Docker cluster, VPC, Jenkins, Consul), written us
 
 These are the Infrastructure Packages Gruntwork currently has available:
 
+1. **Open Source GCP**: Our open source modules that support deploying and managing production grade infrastructure on
+   the Google Cloud Platform.
+    1. **[Network Topology](https://github.com/gruntwork-io/terraform-google-network/)**: Create best-practices Virtual
+       Private Clouds (VPC) on GCP.
+    1. **[Relational Databases](https://github.com/gruntwork-io/terraform-google-sql)**: Deploy and manage production
+       grade relational databasessuch as MySQL and PostgreSQL on GCP using Cloud SQL.
+    1. **[Kubernetes Docker Cluster](https://github.com/gruntwork-io/terraform-google-gke)**: Deploy and manage a
+       production grade Kubernetes cluster on GCP using Google Kubernetes Engine (GKE).
+    1. **[Load Balancer](https://github.com/gruntwork-io/terraform-google-load-balancer/)**: Run a highly-available and
+       scalable network load balancer on GCP using Google Cloud Load Balancing.
+    1. **[Static Assets](https://github.com/gruntwork-io/terraform-google-static-assets/)**: Deploy and serve static
+       assets (CSS, JS, images) on GCP using Google Cloud Storage.
+
 1. **[Network Topology](https://github.com/gruntwork-io/module-vpc)**: Create best-practices Virtual Private Clouds (VPCs) on AWS. The main modules are:
     1. [vpc-app](https://github.com/gruntwork-io/module-vpc/tree/master/modules/vpc-app): Launch a VPC meant to house applications and production code. This module creates the VPC, 3 "tiers" of subnets (public, private app, private persistence) across all Availability Zones, route tables, routing rules, Internet gateways, and NAT gateways.
     1. [vpc-mgmt](https://github.com/gruntwork-io/module-vpc/tree/master/modules/vpc-mgmt): Launch a VPC meant to house internal tools (e.g. Jenkins, VPN server). This module creates the VPC, 2 "tiers" of subnets (public, private), route tables, routing rules, Internet gateways, and NAT gateways.
