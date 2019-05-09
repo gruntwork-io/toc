@@ -4,17 +4,19 @@ This repo is a convenient way to find all of the repositories created and mainta
 
 _Please note that most of the links are private. If you don't have access to them, you'll get a 404 page! To gain access, you must be a Gruntwork customer. See [gruntwork.io](http://www.gruntwork.io/) for more info and feel free to reach out to us at [info@gruntwork.io](mailto:info@gruntwork.io) if you have questions._
 
-### Outline
+## Outline
 
 1. [Terminology](#terminology)
 1. [Infrastructure Packages](#infrastructure-packages)
+    1. [AWS Modules](#aws)
+    1. [Open Source GCP Modules](#open-source-gcp)
 1. [Reference Architecture](#reference-architecture)
 1. [Gruntwork Open Source Tools](#gruntwork-open-source-tools)
 1. [Gruntwork Training Reference Materials](#gruntwork-training-reference-materials)
 1. [Operating System Compatibility](#operating-system-compatibility)
 1. [How to use the code](#how-to-use-the-code)
 
-### Terminology
+## <a name="terminology"></a>Terminology
 
 - **Infrastructure Package:** A reusable, tested, documented, configurable, best-practices definition of a single
 piece of Infrastructure (e.g., Docker cluster, VPC, Jenkins, Consul), written using a combination of Terraform, Go, and Bash. This code has been proven in production, providing the underlying infrastructure for [Gruntwork's customers](http://www.gruntwork.io/clients).
@@ -23,11 +25,11 @@ piece of Infrastructure (e.g., Docker cluster, VPC, Jenkins, Consul), written us
 
 - **Reference Architecture:** A best-practices way to combine all of Gruntwork's Infrastructure Packages into an end-to-end tech stack that contains just about all the infrastructure a company needs, including Docker clusters, databases, caches, load balancers, VPCs, CI servers, VPN servers, monitoring systems, log aggregation, alerting, secrets management, and so on. We build this all using infrastructure as code and immutable infrastructure principles, give you 100% of the code, and can get it deployed in minutes.
 
-### Infrastructure Packages
+## <a name="infrastructure-packages"></a>Infrastructure Packages
 
 These are the Infrastructure Packages Gruntwork currently has available:
 
-##### AWS
+### <a name="aws"></a>AWS
 
 Our IaC modules that support deploying and managing production grade infrastructure on Amazon Web Services (AWS).
 
@@ -215,7 +217,7 @@ Our IaC modules that support deploying and managing production grade infrastruct
 
 1. **[gruntwork](https://github.com/gruntwork-io/gruntwork)**: A CLI tool to perform Gruntwork tasks, such as bootstrapping your GitHub and AWS accounts for the Reference Architecture.
 
-##### Open Source GCP
+### <a name="open-source-gcp"></a>Open Source GCP
 
 Our open source modules that support deploying and managing production grade infrastructure on the Google Cloud Platform (GCP).
 
@@ -280,7 +282,7 @@ Our open source modules that support deploying and managing production grade inf
 
 
 
-### Reference Architecture
+## <a name="reference-architecture"></a>Reference Architecture
 
 The Gruntwork Reference Architecture is a best-practices way to combine all of Gruntwork's Infrastructure Packages into an end-to-end tech stack that contains just about all the infrastructure a company needs, including Docker clusters, databases, caches, load balancers, VPCs, CI servers, VPN servers, monitoring systems, log aggregation, alerting, secrets management, and so on. We build this all using infrastructure as code and immutable infrastructure principles, give you 100% of the code, and can get it deployed in minutes.
 
@@ -289,7 +291,7 @@ You can view the Reference Architecture for a fictional company, Acme, in one of
 1. [Single-account reference architecture](#single-account-reference-architecture)
 1. [Multi-account reference architecture](#multi-account-reference-architecture)
 
-#### Single-account reference architecture
+### Single-account reference architecture
 
 In a single account setup, all environments (e.g., stage, prod, etc) are deployed in a single AWS account, albeit, in separate VPCs. This gives you ease-of-use and convenience, but not as much isolation/security.
 
@@ -298,7 +300,7 @@ In a single account setup, all environments (e.g., stage, prod, etc) are deploye
 1. [sample-app-frontend](https://github.com/gruntwork-io/sample-app-frontend-acme): A sample app that demonstrates best practices for an individual Docker-based frontend app or microservice that talks to backend apps (showing how to do service discovery) and returns HTML. This app is written in NodeJS but these practices are broadly applicable (and in the case of Docker, reusable!) across any technology platform.
 1. [sample-app-backend](https://github.com/gruntwork-io/sample-app-backend-acme): A sample app that demonstrates best practices for an individual Docker-based backend app or microservice that talks to a database. This app is written in NodeJS but these practices are broadly applicable (and in the case of Docker, reusable!) across any technology platform.
 
-#### Multi-account reference architecture
+### Multi-account reference architecture
 
 In a multi-account setup, each environment (e.g., stage, prod, etc) is deployed into a separate AWS account, and in its own VPC within that account. All IAM users are defined in yet another AWS account called security, and you can assume IAM roles to switch between accounts. This gives you much more fine-grained control over security, and complete isolation between accounts, but there it's less convenient to use, as you have to keep switching between accounts.
 
@@ -308,7 +310,7 @@ In a multi-account setup, each environment (e.g., stage, prod, etc) is deployed 
 1. [sample-app-backend](https://github.com/gruntwork-io/sample-app-backend-multi-account-acme): A sample app that demonstrates best practices for an individual Docker-based backend app or microservice that talks to a database. This app is written in NodeJS but these practices are broadly applicable (and in the case of Docker, reusable!) across any technology platform.
 
 
-### Gruntwork Open Source Tools
+## <a name="gruntwork-open-source-tools"></a>Gruntwork Open Source Tools
 
 1. [terragrunt](https://github.com/gruntwork-io/terragrunt): A thin wrapper for Terraform that provides extra tools for working with multiple Terraform modules.
 
@@ -324,7 +326,7 @@ In a multi-account setup, each environment (e.g., stage, prod, etc) is deployed 
 
 1. [cloud-nuke](https://github.com/gruntwork-io/cloud-nuke): A tool for cleaning up your cloud accounts by nuking (deleting) all resources within it.
 
-### Gruntwork Training Reference Materials
+## <a name="gruntwork-training-reference-materials"></a>Gruntwork Training Reference Materials
 
 1. [Gruntwork DevOps Training Library](https://gruntwork.io/training/): A collection of training video courses that teach you DevOps.
 
@@ -345,7 +347,7 @@ In a multi-account setup, each environment (e.g., stage, prod, etc) is deployed 
 1. [infrastructure-as-code-training](https://github.com/gruntwork-io/infrastructure-as-code-training): A sample repo we share with customers when we do training on Terraform, Docker, Packer, AWS, etc.
 
 
-### Operating system compatibility
+## <a name="operating-system-compatibility"></a>Operating system compatibility
 
 Here's a summary of the operating systems supported by Gruntwork as of January, 2019:
 
@@ -381,7 +383,7 @@ Here's a summary of the operating systems supported by Gruntwork as of January, 
 * **Need Windows support?** The vast majority of our customers use Linux or Mac, so we haven't prioritized improving our Windows support. If you would like us to improve our Windows support, we would be happy to discuss a project to do so as part of our [Custom Module Development](https://gruntwork.io/custom-module-development/) process.
 
 
-### How to use the code
+## <a name="how-to-use-the-code"></a>How to use the code
 
 There's a lot of great code here, but how do you use it in your own infracture and apps? There are two options:
 
@@ -390,7 +392,7 @@ There's a lot of great code here, but how do you use it in your own infracture a
 
 Note, you must be a [Gruntwork Subscriber](https://www.gruntwork.io/pricing/) to use either of these options!
 
-#### Reference it from the Gruntwork repos
+### Reference it from the Gruntwork repos
 
 The approach we recommend is to reference the code directly from the Gruntwork repos.
 
@@ -428,7 +430,7 @@ A few notes about the `gruntwork-install` call above:
 1. **Windows users**: `gruntwork-install` is a Bash script, which should work fine on Linux and OS X, but might be tricky to use with Windows. In those cases, you'll want to download the binaries you depend on manually.
 
 
-#### Fork the code to your own repos
+### Fork the code to your own repos
 
 Some companies do not allow dependencies on external repos and require that everything is pulled from an internal source (e.g., GitHub Enterprise, BitBucket, etc). In that case, the [Gruntwork License](https://gruntwork.io/terms/) gives you permissions to fork our code into your own repos.
 
