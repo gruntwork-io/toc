@@ -27,6 +27,10 @@ piece of Infrastructure (e.g., Docker cluster, VPC, Jenkins, Consul), written us
 
 These are the Infrastructure Packages Gruntwork currently has available:
 
+##### AWS
+
+Our IaC modules that support deploying and managing production grade infrastructure on Amazon Web Services (AWS).
+
 1. **[Network Topology](https://github.com/gruntwork-io/module-vpc)**: Create best-practices Virtual Private Clouds (VPCs) on AWS. The main modules are:
     1. [vpc-app](https://github.com/gruntwork-io/module-vpc/tree/master/modules/vpc-app): Launch a VPC meant to house applications and production code. This module creates the VPC, 3 "tiers" of subnets (public, private app, private persistence) across all Availability Zones, route tables, routing rules, Internet gateways, and NAT gateways.
     1. [vpc-mgmt](https://github.com/gruntwork-io/module-vpc/tree/master/modules/vpc-mgmt): Launch a VPC meant to house internal tools (e.g. Jenkins, VPN server). This module creates the VPC, 2 "tiers" of subnets (public, private), route tables, routing rules, Internet gateways, and NAT gateways.
@@ -210,6 +214,71 @@ These are the Infrastructure Packages Gruntwork currently has available:
     1. [run-pex-as-resource](https://github.com/gruntwork-io/package-terraform-utilities/tree/master/modules/run-pex-as-resource): Run a python script with dependencies packaged together as a local-exec provisioner on a null resource in a portable way.
 
 1. **[gruntwork](https://github.com/gruntwork-io/gruntwork)**: A CLI tool to perform Gruntwork tasks, such as bootstrapping your GitHub and AWS accounts for the Reference Architecture.
+
+##### Open Source GCP
+
+Our open source modules that support deploying and managing production grade infrastructure on the Google Cloud Platform (GCP).
+
+1. **[Network Topology](https://github.com/gruntwork-io/terraform-google-network/)**: Create best-practices Virtual
+   Private Clouds (VPC) on GCP.
+    1. [vpc-network](https://github.com/gruntwork-io/terraform-google-network/tree/master/modules/vpc-network): Launch a
+       secure VPC network on GCP. Supports "access tiers", a pair of subnetwork and network tags. By defining an
+       appropriate subnetwork and tag for an instance, you'll ensure that traffic to and from the instance is properly
+       restricted.
+    1. [network-peering](https://github.com/gruntwork-io/terraform-google-network/tree/master/modules/network-peering):
+       Configure peering connections between your networks, allowing you to limit access between environments and reduce
+       the risk of production workloads being compromised.
+    1. [network-firewall](https://github.com/gruntwork-io/terraform-google-network/tree/master/modules/network-firewall):
+       Configures the firewall rules expected by the `vpc-network` module.
+
+1. **[Relational Databases](https://github.com/gruntwork-io/terraform-google-sql)**: Deploy and manage production grade
+   relational databasessuch as MySQL and PostgreSQL on GCP using Cloud SQL.
+    1. [cloud-sql](https://github.com/gruntwork-io/terraform-google-sql/tree/master/modules/cloud-sql): Deploy a Cloud
+       SQL MySQL or PostgreSQL database. Supports automated backups, private and public access, autoresizing of disks,
+       TLS, HA, and read replicas.
+
+1. **[Kubernetes Docker Cluster](https://github.com/gruntwork-io/terraform-google-gke)**: Deploy and manage a production
+   grade Kubernetes cluster on GCP using Google Kubernetes Engine (GKE).
+    1. [gke-cluster](https://github.com/gruntwork-io/terraform-google-gke/tree/master/modules/gke-cluster): Deploy a
+       GKE cluster to run a managed Kubernetes Control Plane. Supports autoscaling, StackDriver monitoring, private and
+       public access.
+    1. [gke-service-account](https://github.com/gruntwork-io/terraform-google-gke/tree/master/modules/gke-service-account):
+       Configure a GCP Service Account that can be used with a GKE cluster. This can be used to allow applications
+       `Pods` running on your GKE workers to access other GCP services.
+
+1. **[Load Balancer](https://github.com/gruntwork-io/terraform-google-load-balancer/)**: Run a highly-available and
+   scalable network load balancer on GCP using Google Cloud Load Balancing.
+    1. [http-load-balancer](https://github.com/gruntwork-io/terraform-google-load-balancer/tree/master/modules/http-load-balancer):
+       Deploy an HTTP(S) Cloud Load Balancer using global forwarding rules. Supports balancing HTTP and HTTPS traffic
+       across multiple backend instances, across multiple regions.
+
+1. **[Static Assets](https://github.com/gruntwork-io/terraform-google-static-assets/)**: Deploy and serve static assets
+   (CSS, JS, images) on GCP using Google Cloud Storage.
+    1. [cloud-storage-static-website](https://github.com/gruntwork-io/terraform-google-static-assets/tree/master/modules/cloud-storage-static-website):
+       Deploy a GCS bucket to host static content as a website. Supports assigning a custom domain to host the content
+       under.
+    1. [http-load-balancer-website](https://github.com/gruntwork-io/terraform-google-static-assets/tree/master/modules/http-load-balancer-website):
+       Deploy a GCS bucket to host static content and serve using Google Cloud Load Balancing. Supports configuring
+       SSL/TLS with a custom domain name.
+
+1. **[Consul](https://github.com/hashicorp/terraform-google-consul)**: Deploy and manage a Consul cluster on GCP. The main modules are:
+    1. [install-consul](https://github.com/hashicorp/terraform-google-consul/tree/master/modules/install-consul): Install Consul and its dependencies on a Linux server.
+    1. [install-dnsmasq](https://github.com/hashicorp/terraform-google-consul/tree/master/modules/install-dnsmasq): Install dnsmasq on a Linux server and configure it to work with Consul as a DNS server. This allows you to use domain names such as my-app.service.consul.
+    1. [run-consul](https://github.com/hashicorp/terraform-google-consul/tree/master/modules/run-consul): Run Consul and automatically bootstrap the cluster.
+    1. [consul-cluster](https://github.com/hashicorp/terraform-google-consul/tree/master/modules/consul-cluster): Deploy a Consul cluster on GCP using a Managed Instance Group.
+
+1. **[Nomad](https://github.com/hashicorp/terraform-google-nomad)**: Deploy and manage a Nomad cluster on GCP. The main modules are:
+    1. [install-nomad](https://github.com/hashicorp/terraform-google-nomad/tree/master/modules/install-nomad): Install Nomad and its dependencies on a Linux server.
+    1. [run-nomad](https://github.com/hashicorp/terraform-google-nomad/run-nomad): Run Nomad and automatically connect to a Consul cluster.
+    1. [nomad-cluster](https://github.com/hashicorp/terraform-google-nomad/tree/master/modules/nomad-cluster): Deploy a Nomad cluster on GCP using a Managed Instance Group.
+
+1. **[Vault](https://github.com/hashicorp/terraform-google-vault)**: Deploy and manage a Vault cluster on GCP. The main modules are:
+    1. [install-vault](https://github.com/hashicorp/terraform-google-vault/tree/master/modules/install-vault): Install Vault and its dependencies on a Linux server.
+    1. [run-vault](https://github.com/hashicorp/terraform-google-vault/tree/master/modules/run-vault): Run Vault and automatically connect to a Consul cluster.
+    1. [private-tls-cert](https://github.com/hashicorp/terraform-google-vault/tree/master/modules/private-tls-cert): Generate self-signed TLS certificates for use with Vault.
+    1. [vault-cluster](https://github.com/hashicorp/terraform-google-vault/tree/master/modules/vault-cluster): Deploy a Vault cluster on GCP using a Managed Instance Group.
+
+
 
 ### Reference Architecture
 
