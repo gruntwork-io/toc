@@ -27,18 +27,56 @@ piece of Infrastructure (e.g., Docker cluster, VPC, Jenkins, Consul), written us
 
 These are the Infrastructure Packages Gruntwork currently has available:
 
-1. **Open Source GCP**: Our open source modules that support deploying and managing production grade infrastructure on
-   the Google Cloud Platform.
-    1. **[Network Topology](https://github.com/gruntwork-io/terraform-google-network/)**: Create best-practices Virtual
-       Private Clouds (VPC) on GCP.
-    1. **[Relational Databases](https://github.com/gruntwork-io/terraform-google-sql)**: Deploy and manage production
-       grade relational databasessuch as MySQL and PostgreSQL on GCP using Cloud SQL.
-    1. **[Kubernetes Docker Cluster](https://github.com/gruntwork-io/terraform-google-gke)**: Deploy and manage a
-       production grade Kubernetes cluster on GCP using Google Kubernetes Engine (GKE).
-    1. **[Load Balancer](https://github.com/gruntwork-io/terraform-google-load-balancer/)**: Run a highly-available and
-       scalable network load balancer on GCP using Google Cloud Load Balancing.
-    1. **[Static Assets](https://github.com/gruntwork-io/terraform-google-static-assets/)**: Deploy and serve static
-       assets (CSS, JS, images) on GCP using Google Cloud Storage.
+##### Open Source GCP
+
+Our open source modules that support deploying and managing production grade infrastructure on the Google Cloud Platform (GCP).
+
+1. **[Network Topology](https://github.com/gruntwork-io/terraform-google-network/)**: Create best-practices Virtual
+   Private Clouds (VPC) on GCP.
+    1. [vpc-network](https://github.com/gruntwork-io/terraform-google-network/tree/master/modules/vpc-network): Launch a
+       secure VPC network on GCP. Supports "access tiers", a pair of subnetwork and network tags. By defining an
+       appropriate subnetwork and tag for an instance, you'll ensure that traffic to and from the instance is properly
+       restricted.
+    1. [network-peering](https://github.com/gruntwork-io/terraform-google-network/tree/master/modules/network-peering):
+       Configure peering connections between your networks, allowing you to limit access between environments and reduce
+       the risk of production workloads being compromised.
+    1. [network-firewall](https://github.com/gruntwork-io/terraform-google-network/tree/master/modules/network-firewall):
+       Configures the firewall rules expected by the `vpc-network` module.
+
+1. **[Relational Databases](https://github.com/gruntwork-io/terraform-google-sql)**: Deploy and manage production grade
+   relational databasessuch as MySQL and PostgreSQL on GCP using Cloud SQL.
+    1. [cloud-sql](https://github.com/gruntwork-io/terraform-google-sql/tree/master/modules/cloud-sql): Deploy a Cloud
+       SQL MySQL or PostgreSQL database. Supports automated backups, private and public access, autoresizing of disks,
+       TLS, HA, and read replicas.
+
+1. **[Kubernetes Docker Cluster](https://github.com/gruntwork-io/terraform-google-gke)**: Deploy and manage a production
+   grade Kubernetes cluster on GCP using Google Kubernetes Engine (GKE).
+    1. [gke-cluster](https://github.com/gruntwork-io/terraform-google-gke/tree/master/modules/gke-cluster): Deploy a
+       GKE cluster to run a managed Kubernetes Control Plane. Supports autoscaling, StackDriver monitoring, private and
+       public access.
+    1. [gke-service-account](https://github.com/gruntwork-io/terraform-google-gke/tree/master/modules/gke-service-account):
+       Configure a GCP Service Account that can be used with a GKE cluster. This can be used to allow applications
+       `Pods` running on your GKE workers to access other GCP services.
+
+1. **[Load Balancer](https://github.com/gruntwork-io/terraform-google-load-balancer/)**: Run a highly-available and
+   scalable network load balancer on GCP using Google Cloud Load Balancing.
+    1. [http-load-balancer](https://github.com/gruntwork-io/terraform-google-load-balancer/tree/master/modules/http-load-balancer):
+       Deploy an HTTP(S) Cloud Load Balancer using global forwarding rules. Supports balancing HTTP and HTTPS traffic
+       across multiple backend instances, across multiple regions.
+
+1. **[Static Assets](https://github.com/gruntwork-io/terraform-google-static-assets/)**: Deploy and serve static assets
+   (CSS, JS, images) on GCP using Google Cloud Storage.
+    1. [cloud-storage-static-website](https://github.com/gruntwork-io/terraform-google-static-assets/tree/master/modules/cloud-storage-static-website):
+       Deploy a GCS bucket to host static content as a website. Supports assigning a custom domain to host the content
+       under.
+    1. [http-load-balancer-website](https://github.com/gruntwork-io/terraform-google-static-assets/tree/master/modules/http-load-balancer-website):
+       Deploy a GCS bucket to host static content and serve using Google Cloud Load Balancing. Supports configuring
+       SSL/TLS with a custom domain name.
+
+
+##### AWS
+
+Our IaC modules that support deploying and managing production grade infrastructure on Amazon Web Services (AWS).
 
 1. **[Network Topology](https://github.com/gruntwork-io/module-vpc)**: Create best-practices Virtual Private Clouds (VPCs) on AWS. The main modules are:
     1. [vpc-app](https://github.com/gruntwork-io/module-vpc/tree/master/modules/vpc-app): Launch a VPC meant to house applications and production code. This module creates the VPC, 3 "tiers" of subnets (public, private app, private persistence) across all Availability Zones, route tables, routing rules, Internet gateways, and NAT gateways.
