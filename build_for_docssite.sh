@@ -18,10 +18,11 @@ function replace_header {
   local -r frontmatter='---\
 title: "Gruntwork IaC Library Catalog"\
 date: __DATE__\
+origin: https://github.com/gruntwork-io/toc/blob/master/README.md
 tags: ["terraform"]\
 ---'
 
-  sed -i'' -e "1 s/^.*$/$frontmatter/g" "$infile"
+  sed -i'' -e "1 s|^.*$|$frontmatter|g" "$infile"
   sed -i'' -e "s/__DATE__/$(get_last_commit_date)/g" "$infile"
 }
 
