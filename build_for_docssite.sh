@@ -18,7 +18,7 @@ function replace_header {
   local -r frontmatter='---\
 title: "Gruntwork IaC Library Catalog"\
 date: __DATE__\
-origin: https:\/\/github.com/gruntwork-io/toc/blob/master/README.md
+origin: "https:\/\/github.com\/gruntwork-io\/toc\/blob\/master\/README.md"\
 tags: ["terraform"]\
 ---'
 
