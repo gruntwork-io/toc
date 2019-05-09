@@ -1,0 +1,5 @@
+# What command to run to generate the docs.
+builder: ./build_for_docssite.sh
+# Where the target files live. These will be pulled in verbatim to /content in the docs repo.
+targets:
+  - ./generated
