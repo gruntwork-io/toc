@@ -23,7 +23,7 @@ piece of Infrastructure (e.g., Docker cluster, VPC, Jenkins, Consul), written us
 
 - **Module:** Each Infrastructure Package consists one or more orthogonal modules that handle some specific aspect of that Infrastructure Package's functionality. Breaking the code up into multiple modules makes it easier to reuse and compose to handle many different use cases.
 
-- **Reference Architecture:** A best-practices way to combine all of Gruntwork's Infrastructure Packages into an end-to-end tech stack that contains just about all the infrastructure a company needs, including Docker clusters, databases, caches, load balancers, VPCs, CI servers, VPN servers, monitoring systems, log aggregation, alerting, secrets management, and so on. We build this all using infrastructure as code and immutable infrastructure principles, give you 100% of the code, and can get it deployed in minutes.
+- **Reference Architecture:** A best-practices way to combine all of Gruntwork's Infrastructure Packages into an end-to-end tech stack that contains just about all the infrastructure a company needs, including Docker clusters, databases, caches, load balancers, VPCs, CI servers, VPN servers, monitoring systems, log aggregation, alerting, secrets management, and so on. We build this all using infrastructure as code and immutable infrastructure principles, give you 100% of the code, and can get it deployed in minutes. Learn more about what is included in the Reference Architecture in our blog post [How to Build an End to End Production-Grade Architecture on AWS](https://blog.gruntwork.io/how-to-build-an-end-to-end-production-grade-architecture-on-aws-part-1-eae8eeb41fec).
 
 ## <a name="infrastructure-packages"></a>Infrastructure Packages
 
@@ -284,7 +284,7 @@ Our open source modules that support deploying and managing production grade inf
 
 ## <a name="reference-architecture"></a>Reference Architecture
 
-The Gruntwork Reference Architecture is a best-practices way to combine all of Gruntwork's Infrastructure Packages into an end-to-end tech stack that contains just about all the infrastructure a company needs, including Docker clusters, databases, caches, load balancers, VPCs, CI servers, VPN servers, monitoring systems, log aggregation, alerting, secrets management, and so on. We build this all using infrastructure as code and immutable infrastructure principles, give you 100% of the code, and can get it deployed in minutes.
+The Gruntwork Reference Architecture is a best-practices way to combine all of Gruntwork's Infrastructure Packages into an end-to-end tech stack that contains just about all the infrastructure a company needs, including Docker clusters, databases, caches, load balancers, VPCs, CI servers, VPN servers, monitoring systems, log aggregation, alerting, secrets management, and so on. We build this all using infrastructure as code and immutable infrastructure principles, give you 100% of the code, and can get it deployed in minutes. Learn more about what is included in the Reference Architecture in our blog post [How to Build an End to End Production-Grade Architecture on AWS](https://blog.gruntwork.io/how-to-build-an-end-to-end-production-grade-architecture-on-aws-part-1-eae8eeb41fec).
 
 You can view the Reference Architecture for a fictional company, Acme, in one of two flavors:
 
@@ -357,7 +357,7 @@ Here's a summary of the operating systems supported by Gruntwork as of January, 
 
 * **Terraform modules**: Just about all the modules we write in Terraform work on all major operating systems. However, there are a few places where we were forced to call out to scripts from our Terraform code. Most of these scripts are Python and work on all major operating systems, but there are a couple places where we lazily call Bash code (mostly `sleep 30` to work around Terraform bugs). If you run into a portability issue, please report it as a bug, and we'll get it fixed!
 
-* **Go**: We've written a number of dev tools in Go, which we compile into standalone binaries that should work on every major operating system. This applies to: 
+* **Go**: We've written a number of dev tools in Go, which we compile into standalone binaries that should work on every major operating system. This applies to:
     - Terragrunt
     - Terratest
     - OpenVPN: `openvpn-admin`
@@ -378,7 +378,7 @@ Here's a summary of the operating systems supported by Gruntwork as of January, 
     - Security: `aws-auth`
     - Docker cluster: `ecs-deploy`
 
-* **Tests**: It's worth noting all of our tests currently run on Linux, which means Windows-specific bugs do slip through periodically. 
+* **Tests**: It's worth noting all of our tests currently run on Linux, which means Windows-specific bugs do slip through periodically.
 
 * **Need Windows support?** The vast majority of our customers use Linux or Mac, so we haven't prioritized improving our Windows support. If you would like us to improve our Windows support, we would be happy to discuss a project to do so as part of our [Custom Module Development](https://gruntwork.io/custom-module-development/) process.
 
