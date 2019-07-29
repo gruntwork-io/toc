@@ -82,7 +82,7 @@ Our IaC modules that support deploying and managing production grade infrastruct
     1. [iam-user-password-policy](https://github.com/gruntwork-io/module-security/tree/master/modules/iam-user-password-policy): Set the AWS Account Password Policy that will govern password requirements for IAM Users.
     1. [cross-account-iam-roles](https://github.com/gruntwork-io/module-security/tree/master/modules/cross-account-iam-roles): Create IAM roles that allow IAM users to easily switch between AWS accounts.
     1. [fail2ban](https://github.com/gruntwork-io/module-security/tree/master/modules/fail2ban): Install fail2ban on your servers to automatically ban malicious users.
-    1. [os-hardening](https://github.com/gruntwork-io/module-security/tree/master/modules/os-hardening): Build a hardened Linux-AMI that implements certian CIS benchmarks.
+    1. [os-hardening](https://github.com/gruntwork-io/module-security/tree/master/modules/os-hardening): Build a hardened Linux-AMI that implements certain CIS benchmarks.
     1. [ntp](https://github.com/gruntwork-io/module-security/tree/master/modules/ntp): Install and configures NTP on a Linux server.
     1. [ip-lockdown](https://github.com/gruntwork-io/module-security/tree/master/modules/ip-lockdown): Install ip-lockdown on your servers to automatically lock down access to specific IPs, such as locking down the EC2 metadata endpoint so only the root user can access it.
 
@@ -208,7 +208,6 @@ Our IaC modules that support deploying and managing production grade infrastruct
 
 
 1. **[package-terraform-utilities](https://github.com/gruntwork-io/package-terraform-utilities)**: Useful Terraform utilities. The main modules are:
-    1. [intermediate-variable](https://github.com/gruntwork-io/package-terraform-utilities/tree/master/modules/intermediate-variable): A way to define intermediate variables in Terraform.
     1. [join-path](https://github.com/gruntwork-io/package-terraform-utilities/tree/master/modules/join-path): Join a list of given path parts (that is, file and folder names) into a single path with the appropriate path separator (backslash or forward slash) for the current operating system.
     1. [operating-system](https://github.com/gruntwork-io/package-terraform-utilities/tree/master/modules/operating-system): Figure out what operating system is being used to run Terraform from inside your Terraform code.
     1. [require-executable](https://github.com/gruntwork-io/package-terraform-utilities/tree/master/modules/require-executable): Verify an executable exists on the host system, and emit a friendly error message if it does not.
@@ -351,7 +350,7 @@ In a multi-account setup, each environment (e.g., stage, prod, etc) is deployed 
 
 Here's a summary of the operating systems supported by Gruntwork as of January, 2019:
 
-* **Modules vs dev tools**: Just about all of our _modules_ for running various types of infrastructure—e.g., Kafka, ZooKeeper, ELK, MongoDB, OpenVPN, Jenkins, etc—assume they are being deployed on Linux servers. In practice, this means that all the `install-xxx` and `run-xxx` scripts (e.g., install-kafka, run-kafka) are written in Bash and don't work on Windows. However, our _dev tools_—the tools that we expect developers to run on their own computer to interact with the infrastructure—are often portable and work on most major operating systems. 
+* **Modules vs dev tools**: Just about all of our _modules_ for running various types of infrastructure—e.g., Kafka, ZooKeeper, ELK, MongoDB, OpenVPN, Jenkins, etc—assume they are being deployed on Linux servers. In practice, this means that all the `install-xxx` and `run-xxx` scripts (e.g., install-kafka, run-kafka) are written in Bash and don't work on Windows. However, our _dev tools_—the tools that we expect developers to run on their own computer to interact with the infrastructure—are often portable and work on most major operating systems.
 
 * **The basic dev tools**: The basic dev tools we use are Terraform, Packer, and Docker, all of which should work on all major operating systems.
 
