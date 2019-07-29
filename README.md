@@ -294,8 +294,8 @@ You can view the Reference Architecture for a fictional company, Acme, in one of
 
 In a single account setup, all environments (e.g., stage, prod, etc) are deployed in a single AWS account, albeit, in separate VPCs. This gives you ease-of-use and convenience, but not as much isolation/security.
 
-1. [infrastratructure-modules](https://github.com/gruntwork-io/infrastructure-modules-acme): The reusable modules that define the infrastructure for the entire company.
-1. [infrastratructure-live](https://github.com/gruntwork-io/infrastructure-live-acme): Use the modules in infrastructure-modules to deploy all of the live environments for the company.
+1. [infrastructure-modules](https://github.com/gruntwork-io/infrastructure-modules-acme): The reusable modules that define the infrastructure for the entire company.
+1. [infrastructure-live](https://github.com/gruntwork-io/infrastructure-live-acme): Use the modules in infrastructure-modules to deploy all of the live environments for the company.
 1. [sample-app-frontend](https://github.com/gruntwork-io/sample-app-frontend-acme): A sample app that demonstrates best practices for an individual Docker-based frontend app or microservice that talks to backend apps (showing how to do service discovery) and returns HTML. This app is written in NodeJS but these practices are broadly applicable (and in the case of Docker, reusable!) across any technology platform.
 1. [sample-app-backend](https://github.com/gruntwork-io/sample-app-backend-acme): A sample app that demonstrates best practices for an individual Docker-based backend app or microservice that talks to a database. This app is written in NodeJS but these practices are broadly applicable (and in the case of Docker, reusable!) across any technology platform.
 
