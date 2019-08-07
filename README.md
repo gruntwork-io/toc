@@ -40,6 +40,7 @@ Our IaC modules that support deploying and managing production grade infrastruct
     1. [vpc-mgmt-network-acls](https://github.com/gruntwork-io/module-vpc/tree/master/modules/vpc-mgmt-network-acls): Add a default set of Network ACLs to a VPC created using the vpc-mgmt module that strictly control what inbound and outbound network traffic is allowed in each subnet of that VPC.
     1. [vpc-peering](https://github.com/gruntwork-io/module-vpc/tree/master/modules/vpc-peering): Create peering connections between your VPCs to allow them to communicate with each other.
     1. [vpc-peering-external](https://github.com/gruntwork-io/module-vpc/tree/master/modules/vpc-peering-external): Create peering connections between your VPCs and VPCs managed in other (external) AWS accounts.
+    1. [vpc-flow-logs](https://github.com/gruntwork-io/module-vpc/tree/master/modules/vpc-flow-logs): Create VPC Flow Logs to log IP traffic in AWS VPCs.
 
 1. **[Monitoring and Alerting](https://github.com/gruntwork-io/module-aws-monitoring)**: Configure monitoring, log aggregation, and alerting using CloudWatch, SNS, and S3. The main modules are:
     1. [alarms](https://github.com/gruntwork-io/module-aws-monitoring/tree/master/modules/alarms): A collection of more than 20 modules that set up CloudWatch Alarms for a variety of AWS services, such as CPU, memory, and disk space usage for EC2 Instances, Route 53 health checks for public endpoints, 4xx/5xx/connection errors for load balancers, and a way to send alarm notifications to a Slack channel.
