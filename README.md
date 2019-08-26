@@ -434,7 +434,9 @@ A few notes about the `gruntwork-install` call above:
 
 Some companies do not allow dependencies on external repos and require that everything is pulled from an internal source (e.g., GitHub Enterprise, BitBucket, etc). In that case, the [Gruntwork License](https://gruntwork.io/terms/) gives you permissions to fork our code into your own repos.
 
-Here's what you would need to do:
+**IMPORTANT NOTE**: The definition of a "user" does NOT change if you fork the code. That is, if you create internal forks and give 50 users access to those internal forks, then the Gruntwork License requires that you pay for 50 users. 
+
+Here's how you fork the code:
 
 1. Copy each Gruntwork repo into your private repositories.
 1. You'll also want to copy all the versioned releases (see the `/releases` page for each repo).
