@@ -75,6 +75,7 @@ Our IaC modules that support deploying and managing production grade infrastruct
 1. **[Security](https://github.com/gruntwork-io/module-security)**: Best practices for managing secrets, credentials, servers, and users. The main modules are:
     1. [auto-update](https://github.com/gruntwork-io/module-security/tree/master/modules/auto-update): Configure your servers to automatically install critical security patches.
     1. [aws-auth](https://github.com/gruntwork-io/module-security/tree/master/modules/aws-auth): A script that makes it much easier to use the AWS CLI with MFA and/or multiple AWS accounts.
+    1. [aws-config](https://github.com/gruntwork-io/module-security/tree/master/modules/aws-config): Enable AWS Config to monitor, audit, and assess an AWS account for compliance.
     1. [cloudtrail](https://github.com/gruntwork-io/module-security/tree/master/modules/cloudtrail): Configure CloudTrail in an AWS account to audit all API calls.
     1. [kms-master-key](https://github.com/gruntwork-io/module-security/tree/master/modules/kms-master-key): Create a master key in Amazon's Key Management Service and configure permissions for that key.
     1. [ssh-grunt](https://github.com/gruntwork-io/module-security/tree/master/modules/ssh-grunt): Manage SSH access to your servers using an identity provider, such as AWS IAM groups or Gruntwork Houston. Every developer in a managed group you specify will be able to SSH to your servers using their own username and SSH key.
@@ -434,7 +435,7 @@ A few notes about the `gruntwork-install` call above:
 
 Some companies do not allow dependencies on external repos and require that everything is pulled from an internal source (e.g., GitHub Enterprise, BitBucket, etc). In that case, the [Gruntwork License](https://gruntwork.io/terms/) gives you permissions to fork our code into your own repos.
 
-**IMPORTANT NOTE**: The definition of a "user" does NOT change if you fork the code. That is, if you create internal forks and give 50 users access to those internal forks, then the Gruntwork License requires that you pay for 50 users. 
+**IMPORTANT NOTE**: The definition of a "user" does NOT change if you fork the code. That is, if you create internal forks and give 50 users access to those internal forks, then the Gruntwork License requires that you pay for 50 users.
 
 Here's how you fork the code:
 
