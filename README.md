@@ -60,7 +60,10 @@ Our IaC modules that support deploying and managing production grade infrastruct
 
 1. **[Load Balancer](https://github.com/gruntwork-io/module-load-balancer)**: Run a highly-available and scalable load balancer in AWS. The main modules are:
     1. [alb](https://github.com/gruntwork-io/module-load-balancer/tree/master/modules/alb): Deploy an Application Load Balancer (ALB) in AWS. It supports HTTP, HTTPS, HTTP/2, WebSockets, path-based routing, host-based routing, and health checks.
-    1. [nlb](https://github.com/gruntwork-io/module-load-balancer/tree/master/modules/nlb): Deploy a Network Load Balancer (NLB) in AWS. It supports TCP, WebSockets, static IPs, high throughputs, and health checks.
+    1. nlb [**DEPRECATED**]: You should use the `aws_lb` resource directly. If you were using this module before, refer
+       to [the migration
+       guide](https://github.com/gruntwork-io/module-load-balancer/tree/master/_docs/migration_guides/nlb_to_0.15.0)
+       for more information on how to transition to using the `aws_lb` resource.
 
 1. **[Lambda](https://github.com/gruntwork-io/package-lambda)**: Deploy and manage AWS Lambda functions. The main modules are:
     1. [lambda](https://github.com/gruntwork-io/package-lambda/tree/master/modules/lambda): Deploy and manage AWS Lambda functions. Includes support for automatically uploading your code to AWS, configuring an IAM role for your Lambda function, and giving your Lambda function access to your VPCs.
