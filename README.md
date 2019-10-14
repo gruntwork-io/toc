@@ -80,12 +80,14 @@ Our IaC modules that support deploying and managing production grade infrastruct
     1. [aws-auth](https://github.com/gruntwork-io/module-security/tree/master/modules/aws-auth): A script that makes it much easier to use the AWS CLI with MFA and/or multiple AWS accounts.
     1. [aws-config](https://github.com/gruntwork-io/module-security/tree/master/modules/aws-config): Enable AWS Config to monitor, audit, and assess an AWS account for compliance.
     1. [cloudtrail](https://github.com/gruntwork-io/module-security/tree/master/modules/cloudtrail): Configure CloudTrail in an AWS account to audit all API calls.
+    1. [custom-iam-entity](https://github.com/gruntwork-io/module-security/tree/master/modules/custom-iam-entity): Create an IAM group or role and attach a custom set of managed policies
     1. [kms-master-key](https://github.com/gruntwork-io/module-security/tree/master/modules/kms-master-key): Create a master key in Amazon's Key Management Service and configure permissions for that key.
     1. [ssh-grunt](https://github.com/gruntwork-io/module-security/tree/master/modules/ssh-grunt): Manage SSH access to your servers using an identity provider, such as AWS IAM groups or Gruntwork Houston. Every developer in a managed group you specify will be able to SSH to your servers using their own username and SSH key.
     1. [ssh-grunt-selinux-policy](https://github.com/gruntwork-io/module-security/tree/master/modules/ssh-grunt-selinux-policy): Install a SELinux Local Policy Module that is necessary to make ssh-grunt work on systems with SELinux, such as CentOS.
     1. [iam-groups](https://github.com/gruntwork-io/module-security/tree/master/modules/iam-groups): Create a best-practices set of IAM groups for managing access to your AWS account.
     1. [iam-user-password-policy](https://github.com/gruntwork-io/module-security/tree/master/modules/iam-user-password-policy): Set the AWS Account Password Policy that will govern password requirements for IAM Users.
     1. [cross-account-iam-roles](https://github.com/gruntwork-io/module-security/tree/master/modules/cross-account-iam-roles): Create IAM roles that allow IAM users to easily switch between AWS accounts.
+    1. [saml-iam-roles](https://github.com/gruntwork-io/module-security/tree/master/modules/saml-iam-roles): Allow access to AWS using federated identity providers via SAML.
     1. [fail2ban](https://github.com/gruntwork-io/module-security/tree/master/modules/fail2ban): Install fail2ban on your servers to automatically ban malicious users.
     1. [os-hardening](https://github.com/gruntwork-io/module-security/tree/master/modules/os-hardening): Build a hardened Linux-AMI that implements certain CIS benchmarks.
     1. [ntp](https://github.com/gruntwork-io/module-security/tree/master/modules/ntp): Install and configures NTP on a Linux server.
